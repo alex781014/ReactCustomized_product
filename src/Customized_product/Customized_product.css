@@ -1,0 +1,22 @@
+.card {
+    width: 33%;
+}
+
+.card .card-img-top {
+    width: 100%;
+    height: 7vw;
+    object-fit: contain;
+    flex-grow: 1;
+}
+
+.man {
+    width: 80px;
+}
+
+.fa-trash {
+    cursor: pointer;
+}
+
+.chooseArea {
+    height: 40vh;
+}
