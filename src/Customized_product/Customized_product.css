@@ -1,12 +1,78 @@
 .card {
-    width: 33%;
+    width: 28%;
+}
+.sideMenu{
+    position: relative;
+    transition: 0.4s;
+    background-color: rgb(244, 191, 191);
+}
+.rightArrow{
+    position: absolute;
+    right: -50px;
+    top: 35vh;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(243, 178, 178);
+    border: 2px solid rgb(254, 254, 254);
+    padding: 20px;
+    border-radius: 10px;
+    height: 71px;
+    width: 74px;
+
+}
+
+.rightArrow span {
+    display: block;
+    margin-top: 5px;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 4px;
+    width: 30px;
+    transition: 0.4s;
+}
+
+.rightArrow:hover span {
+    margin: auto;
+
+}
+
+.rightArrow-in:hover span:nth-child(1){
+    width: 25px;
+    transform: translate(-3px,8px) rotate(30deg);
+}
+.rightArrow-in:hover span:nth-child(2){
+    display: none;
+}
+.rightArrow-in:hover span:nth-child(3){
+    width: 25px;
+    transform: translate(-3px,-8px) rotate(-30deg);
+}
+
+.rightArrow-out:hover span:nth-child(1){
+    width: 25px;
+    transform: translate(0px,8px) rotate(-30deg);
+}
+.rightArrow-out:hover span:nth-child(2){
+    display: none;
+}
+.rightArrow-out:hover span:nth-child(3){
+    width: 25px;
+    transform: translate(0px,-8px) rotate(30deg);
 }
 
 .card .card-img-top {
     width: 100%;
-    height: 7vw;
+    height:85px;
     object-fit: contain;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    border-radius: 50%;
+    /* border: 1px solid lightgray; */
+
+}
+
+.card-body{
+    padding: 0;
 }
 
 .man {
@@ -20,10 +86,16 @@
 .chooseArea {
     height: 40vh;
 }
-/* @media screen and (max-width:500px){
+.sideMenuNX{
+    width: 10px;
+    
+}
+
+@media screen and (max-width:767px){
     .foods{
+
         display: none;
     }
-} */
+}
 
 

@@ -3,7 +3,7 @@ import React from 'react'
 function Canvas() {
   return (
     <>
-      <div className="col-8 col-md-6">
+      <div className="col-8 col-md-5">
         <img
           className="d-none newImg"
           src="../images/images.jpg"
@@ -12,7 +12,7 @@ function Canvas() {
         />
         <div className="photo"></div>
         <div className="cancasArea d-flex justify-content-center">
-          <canvas id="myCanvas" width="500" height="500"></canvas>
+          <canvas id="myCanvas" ></canvas>
         </div>
       </div>
     </>

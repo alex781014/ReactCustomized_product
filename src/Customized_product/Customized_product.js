@@ -5,7 +5,7 @@ import './Customized_product.css'
 function Customized_product() {
   return (
     <>
-      <div class="container">
+      <div class="container-fluid">
         <div class="pho-bg row">
           <Foods />
           <Canvas />
