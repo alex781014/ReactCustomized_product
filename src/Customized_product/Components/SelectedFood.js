@@ -13,7 +13,7 @@ function SelectedFood() {
   }
   return (
     <>
-      <div className="col-3">
+      <div className="col-4 col-md-3 ">
         <h3 className="text-center">已選食材</h3>
         <div className="chooseArea d-flex  align-items-center ">
           <div className="detilArea d-flex align-items-center justify-content-between flex-wrap w-100"></div>

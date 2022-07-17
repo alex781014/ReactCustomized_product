@@ -20,3 +20,10 @@
 .chooseArea {
     height: 40vh;
 }
+/* @media screen and (max-width:500px){
+    .foods{
+        display: none;
+    }
+} */
+
+

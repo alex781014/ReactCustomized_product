@@ -2,7 +2,7 @@ import images from '../images/chicken.png'
 function Foods() {
   return (
     <>
-      <div className="col-3">
+      <div className="col-0 col-md-3 foods">
         <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li className="nav-item" role="presentation">
             <button
@@ -73,7 +73,11 @@ function Foods() {
               {/* <% for(let i of rows){%>
                                 <%if(i.product_type===1){%> */}
               <div className="card border-0 justify-content-center ">
-                <img className="man text-center card-img-top " src={images}/>
+                <img
+                  className="man text-center card-img-top "
+                  src={images}
+                  alt=""
+                />
                 {/* src="../images/<%= i.product_img%>" onclick="showcard(event)"
                                             id="<%= i.element_id%>" alt="" data-img="../images/<%= i.product_img%>"
                                             data-pName="<%= i.product_name%>" data-pPrice="<%= i.product_price%>"
@@ -101,7 +105,7 @@ function Foods() {
               {/* <% for(let i of rows){%>
                                 <%if(i.product_type===3){%> */}
               <div className="card border-0 justify-content-center ">
-                <img className="man text-center card-img-top" />
+                <img className="man text-center card-img-top" alt="" />
                 {/* src="../images/<%= i.product_img%>" onclick="showcard(event)"
                                             id="<%= i.element_id%>" alt="" data-img="../images/<%= i.product_img%>"
                                             data-pName="<%= i.product_name%>" data-pPrice="<%= i.product_price%>" */}
@@ -128,7 +132,7 @@ function Foods() {
               {/* <% for(let i of rows){%>
                                 <%if(i.product_type===4){%> */}
               <div className="card border-0 justify-content-center ">
-                <img className="man text-center card-img-top " />
+                <img className="man text-center card-img-top " alt="" />
 
                 {/* src="../images/<%= i.product_img%>" onclick="showcard(event)"
                                             id="<%= i.element_id%>" alt="" data-img="../images/<%= i.product_img%>"
@@ -156,7 +160,7 @@ function Foods() {
               {/* <% for(let i of rows){%>
                                 <%if(i.product_type===2){%> */}
               <div className="card border-0 justify-content-center ">
-                <img className="man text-center card-img-top " />
+                <img className="man text-center card-img-top " alt="" />
 
                 {/* src="../images/<%= i.product_img%>" onclick="showcard(event)"
                                             id="<%= i.element_id%>" alt="" data-img="../images/<%= i.product_img%>"

@@ -1,17 +1,17 @@
-import Foods from "./Components/Foods"
-import Canvas from "./Components/Canvas"
-import SelectedFood from "./Components/SelectedFood"
+import Foods from './Components/Foods'
+import Canvas from './Components/Canvas'
+import SelectedFood from './Components/SelectedFood'
 import './Customized_product.css'
 function Customized_product() {
   return (
     <>
-    <div class="container">
+      <div class="container">
         <div class="pho-bg row">
-            <Foods/>
-            <Canvas/>
-            <SelectedFood/>
+          <Foods />
+          <Canvas />
+          <SelectedFood />
         </div>
-    </div>
+      </div>
     </>
   )
 }
