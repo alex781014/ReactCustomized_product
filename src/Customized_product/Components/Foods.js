@@ -3,19 +3,23 @@ function Foods(props) {
   const { isShowed, setIsShowed } = props
   return (
     <>
-      <div className={isShowed ? 'col-md-4 sideMenu' : 'col-md-4 sideMenuNX'}>
+      <div
+        className={
+          isShowed ? 'col-md-4 sideMenu showSideBar' : 'col-md-4 sideMenuNX hiddenSideBar'
+        }
+      >
         <ul
           className={
             isShowed
-              ? 'col-md-4 nav nav-pills mb-3 flex-nowrap'
-              : 'col-md-4 d-none nav nav-pills mb-3 flex-nowrap'
+              ? 'nav nav-pills mb-3 flex-nowrap '
+              : 'nav nav-pills mb-3 flex-nowrap hidden'
           }
           id="pills-tab"
           role="tablist"
         >
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link active  m-auto"
+              className="nav-link active  m-md-auto"
               id="staple-food"
               data-bs-toggle="pill"
               data-bs-target="#pills-staple-food"
@@ -29,7 +33,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto"
+              className="nav-link  m-md-auto"
               id="meal"
               data-bs-toggle="pill"
               data-bs-target="#pills-meal"
@@ -41,9 +45,9 @@ function Foods(props) {
               肉類
             </button>
           </li>
-          <li className="nav-item col-3" role="presentation">
+          <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto"
+              className="nav-link  m-md-auto"
               id="seafood"
               data-bs-toggle="pill"
               data-bs-target="#pills-seafood"
@@ -57,7 +61,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto"
+              className="nav-link  m-md-auto"
               id="vegetable"
               data-bs-toggle="pill"
               data-bs-target="#pills-vegetable"
@@ -72,7 +76,7 @@ function Foods(props) {
         </ul>
 
         <div
-          className={isShowed ? 'tab-content' : 'tab-content d-none'}
+          className={isShowed ? 'tab-content' : 'tab-content hidden'}
           id="pills-tabContent"
         >
           <div
@@ -163,7 +167,7 @@ function Foods(props) {
           className={
             isShowed ? 'rightArrow rightArrow-in' : 'rightArrow rightArrow-out'
           }
-          onClick={() => setIsShowed(!isShowed)}
+          onClick={() => setIsShowed(isShowed)}
         >
           <span></span>
           <span></span>

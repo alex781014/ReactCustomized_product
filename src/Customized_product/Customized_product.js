@@ -4,13 +4,13 @@ import SelectedFood from './Components/SelectedFood'
 import './Customized_product.css'
 import { useState } from 'react'
 function Customized_product() {
-  const [isShowed, setIsShowed] = useState(false)
+  const [isShowed, setIsShowed] = useState(true)
 
   return (
     <>
       <div class="container-fluid">
         <div class="pho-bg row">
-          <Foods isShowed={isShowed} setIsShowed={setIsShowed} />
+          <Foods isShowed={!isShowed} setIsShowed={setIsShowed} />
           <Canvas />
           <SelectedFood />
         </div>
