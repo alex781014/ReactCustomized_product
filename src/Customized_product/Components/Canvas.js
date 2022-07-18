@@ -12,7 +12,7 @@ function Canvas() {
         />
         <div className="photo"></div>
         <div className="cancasArea d-flex justify-content-center">
-          <canvas id="myCanvas" ></canvas>
+          <canvas id="myCanvas"></canvas>
         </div>
       </div>
     </>

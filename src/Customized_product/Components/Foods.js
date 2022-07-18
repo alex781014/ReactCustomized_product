@@ -1,17 +1,15 @@
-import {useState} from 'react'
-function Foods() {
-  const [isShowed,setIsShowed] = useState(false)
+// import { useState } from 'react'
+function Foods(props) {
+  const { isShowed, setIsShowed } = props
   return (
     <>
-      <div
-        className={
-          isShowed
-            ? 'col-md-4 foods sideMenu'
-            : 'col-md-4 foods sideMenu sideMenuNX'
-        }
-      >
+      <div className={isShowed ? 'col-md-4 sideMenu' : 'col-md-4 sideMenuNX'}>
         <ul
-          className="nav nav-pills mb-3 flex-nowrap"
+          className={
+            isShowed
+              ? 'col-md-4 nav nav-pills mb-3 flex-nowrap'
+              : 'col-md-4 d-none nav nav-pills mb-3 flex-nowrap'
+          }
           id="pills-tab"
           role="tablist"
         >
@@ -71,21 +69,12 @@ function Foods() {
               青菜類
             </button>
           </li>
-          <button
-            className={
-              isShowed
-                ? 'rightArrow rightArrow-in'
-                : 'rightArrow rightArrow-out'
-            }
-            onClick={() => setIsShowed(!isShowed)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </ul>
 
-        <div className="tab-content" id="pills-tabContent">
+        <div
+          className={isShowed ? 'tab-content' : 'tab-content d-none'}
+          id="pills-tabContent"
+        >
           <div
             className="tab-pane fade show active"
             id="pills-staple-food"
@@ -94,7 +83,11 @@ function Foods() {
           >
             <div className="d-flex flex-wrap ">
               <div className="card border-0 align-items-center ">
-                <img className="man card-img-top " src="images/rice.png" />
+                <img
+                  className="man card-img-top "
+                  src="images/rice.png"
+                  alt="白飯"
+                />
 
                 <div className="card-body">
                   <p className="card-text text-center m-0 pName">白飯</p>
@@ -114,6 +107,7 @@ function Foods() {
                 <img
                   className="man text-center card-img-top "
                   src="images/chicken.png"
+                  alt="宮保雞丁"
                 />
                 <div className="card-body">
                   <p className="card-text text-center m-0 pName">宮保雞丁</p>
@@ -133,6 +127,7 @@ function Foods() {
                 <img
                   className="man text-center card-img-top"
                   src="images/cod.png"
+                  alt="考鱈魚"
                 />
 
                 <div className="card-body">
@@ -153,6 +148,7 @@ function Foods() {
                 <img
                   className="man text-center card-img-top "
                   src="images/vegtable.png"
+                  alt="花椰菜"
                 />
 
                 <div className="card-body">
@@ -163,6 +159,16 @@ function Foods() {
             </div>
           </div>
         </div>
+        <button
+          className={
+            isShowed ? 'rightArrow rightArrow-in' : 'rightArrow rightArrow-out'
+          }
+          onClick={() => setIsShowed(!isShowed)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </>
   )
