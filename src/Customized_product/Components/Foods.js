@@ -1,11 +1,23 @@
 // import { useState } from 'react'
 function Foods(props) {
   const { isShowed, setIsShowed } = props
+  const { productsInOrder, setProductsInOrder } = props
+
+  //  每個商品物件
+  //   {
+  //     "id": 1,
+  //     "name": "白飯",
+  //     "category": "1",
+  //     "image": "images/rice.png",
+  //     "price": 10
+  //   }
   return (
     <>
       <div
         className={
-          isShowed ? 'col-md-4 sideMenu showSideBar' : 'col-md-4 sideMenuNX hiddenSideBar'
+          isShowed
+            ? 'col-md-4 sideMenu showSideBar'
+            : 'col-md-4 sideMenuNX hiddenSideBar'
         }
       >
         <ul
@@ -86,7 +98,32 @@ function Foods(props) {
             aria-labelledby="pills-staple-food"
           >
             <div className="d-flex flex-wrap ">
-              <div className="card border-0 align-items-center ">
+              {productsInOrder
+                .filter((v, i) => {
+                  return v.category === '1'
+                })
+                .map((v, i) => {
+                  return (
+                    <div
+                      key={v.id}
+                      className="card border-0 align-items-center "
+                    >
+                      <img
+                        className="man card-img-top"
+                        src={v.image}
+                        alt={v.name}
+                      />
+
+                      <div className="card-body">
+                        <p className="card-text text-center m-0 pName">
+                          {v.name}
+                        </p>
+                        <p className="card-text text-center">價格:{v.price}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              {/* <div className="card border-0 align-items-center ">
                 <img
                   className="man card-img-top "
                   src="images/rice.png"
@@ -97,7 +134,7 @@ function Foods(props) {
                   <p className="card-text text-center m-0 pName">白飯</p>
                   <p className="card-text text-center">價格:20</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div
@@ -107,17 +144,34 @@ function Foods(props) {
             aria-labelledby="pills-meal"
           >
             <div className="d-flex flex-wrap">
-              <div className="card border-0 align-items-center">
-                <img
-                  className="man text-center card-img-top "
-                  src="images/chicken.png"
-                  alt="宮保雞丁"
-                />
-                <div className="card-body">
-                  <p className="card-text text-center m-0 pName">宮保雞丁</p>
-                  <p className="card-text text-center">價格:35</p>
-                </div>
-              </div>
+              {productsInOrder
+                .filter((v, i) => {
+                  return v.category === '2'
+                })
+                .map((v, i) => {
+                  return (
+                    <div
+                      key={v.id}
+                      className="card border-0 align-items-center "
+                    >
+                      <img
+                        className="man card-img-top"
+                        onClick={(e) => {
+                          console.log(e.currentTarget.outerHTML)
+                        }}
+                        src={v.image}
+                        alt={v.name}
+                      />
+
+                      <div className="card-body">
+                        <p className="card-text text-center m-0 pName">
+                          {v.name}
+                        </p>
+                        <p className="card-text text-center">價格:{v.price}</p>
+                      </div>
+                    </div>
+                  )
+                })}
             </div>
           </div>
           <div
@@ -127,18 +181,31 @@ function Foods(props) {
             aria-labelledby="pills-seafood"
           >
             <div className="d-flex flex-wrap">
-              <div className="card border-0 align-items-center">
-                <img
-                  className="man text-center card-img-top"
-                  src="images/cod.png"
-                  alt="考鱈魚"
-                />
+              {productsInOrder
+                .filter((v, i) => {
+                  return v.category === '3'
+                })
+                .map((v, i) => {
+                  return (
+                    <div
+                      key={v.id}
+                      className="card border-0 align-items-center "
+                    >
+                      <img
+                        className="man card-img-top"
+                        src={v.image}
+                        alt={v.name}
+                      />
 
-                <div className="card-body">
-                  <p className="card-text text-center m-0 pName">烤鱈魚</p>
-                  <p className="card-text text-center">價格:40</p>
-                </div>
-              </div>
+                      <div className="card-body">
+                        <p className="card-text text-center m-0 pName">
+                          {v.name}
+                        </p>
+                        <p className="card-text text-center">價格:{v.price}</p>
+                      </div>
+                    </div>
+                  )
+                })}
             </div>
           </div>
           <div
@@ -148,18 +215,31 @@ function Foods(props) {
             aria-labelledby="pills-vegetable"
           >
             <div className="d-flex flex-wrap">
-              <div className="card border-0 align-items-center">
-                <img
-                  className="man text-center card-img-top "
-                  src="images/vegtable.png"
-                  alt="花椰菜"
-                />
+              {productsInOrder
+                .filter((v, i) => {
+                  return v.category === '4'
+                })
+                .map((v, i) => {
+                  return (
+                    <div
+                      key={v.id}
+                      className="card border-0 align-items-center "
+                    >
+                      <img
+                        className="man card-img-top"
+                        src={v.image}
+                        alt={v.name}
+                      />
 
-                <div className="card-body">
-                  <p className="card-text text-center m-0 pName">花椰菜</p>
-                  <p className="card-text text-center">價格:15</p>
-                </div>
-              </div>
+                      <div className="card-body">
+                        <p className="card-text text-center m-0 pName">
+                          {v.name}
+                        </p>
+                        <p className="card-text text-center">價格:{v.price}</p>
+                      </div>
+                    </div>
+                  )
+                })}
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
-function SelectedFood() {
+// import ProductItem from './ProductItem'
+
+function SelectedFood(props) {
   const createOptions = (min, max) => {
     const options = []
 
@@ -8,9 +10,14 @@ function SelectedFood() {
       const v = String(i)
       options.push(<option value={v}>{v}</option>)
     }
-
     return options
   }
+
+  // const newArray = () => {
+  //   return Array(5)
+  //     .fill(1)
+  //     .map((v, i) => <option value={i + 1}>{i + 1}</option>)
+  // }
   return (
     <>
       <div className="col-md-3 ">
@@ -19,9 +26,9 @@ function SelectedFood() {
           <div className="detilArea d-flex align-items-center justify-content-between flex-wrap w-100"></div>
         </div>
         <div className="form-group">
-          <label for="exampleFormControlSelect1">選擇便當數量</label>
+          <label htmlFor="exampleFormControlSelect1">選擇便當數量</label>
           <select
-            onchange="getcount()"
+            onChange="getcount()"
             className="form-control lunchbox_stock"
             id="exampleFormControlSelect1"
             name="lunchbox_stock"
@@ -32,7 +39,7 @@ function SelectedFood() {
             </option>
             {createOptions(1, 5)}
           </select>
-          <label for="exampleFormControlTextarea1">備註欄</label>
+          <label htmlFor="exampleFormControlTextarea1">備註欄</label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
@@ -49,7 +56,6 @@ function SelectedFood() {
           >
             送出
           </button>
-          <select id="listCombo" onchange="loadCanvas(this.value)"></select>
         </div>
       </div>
     </>
