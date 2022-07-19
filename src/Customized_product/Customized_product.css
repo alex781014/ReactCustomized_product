@@ -14,7 +14,7 @@
 .rightArrow {
   display: none;
   position: absolute;
-  right: 0px;
+  right: -22px;
   top: 35vh;
   background: none;
   border: none;
@@ -64,6 +64,59 @@
   width: 25px;
   transform: translate(0px, -8px) rotate(30deg);
 }
+.leftArrow {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 35vh;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(13, 220, 92);
+  border: 2px solid rgb(254, 254, 254);
+  /* padding: 20px; */
+  border-radius: 10px;
+  height: 51px;
+  width: 54px;
+}
+
+.leftArrow span {
+  display: block;
+  margin-top: 2px;
+  background-color: #fff;
+  border-radius: 15px;
+  height: 4px;
+  width: 30px;
+  transition: 0.2s;
+}
+
+.leftArrow:hover span {
+  margin: auto;
+}
+
+.leftArrow-in:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(-3px, 8px) rotate(-30deg);
+}
+.leftArrow-in:hover span:nth-child(2) {
+  display: none;
+}
+.leftArrow-in:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(-3px, -8px) rotate(30deg);
+}
+
+.leftArrow-out:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(0px, 8px) rotate(30deg);
+}
+.leftArrow-out:hover span:nth-child(2) {
+  display: none;
+}
+.leftArrow-out:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(0px, -8px) rotate(-30deg);
+}
 
 /* .card .card-img-top {
   width: 100%;
@@ -92,7 +145,14 @@
     position: absolute;
     display: block;
   }
-
+  .leftArrow {
+    position: absolute;
+    left: 0;
+    display: block;
+  }
+  .selectedFoodSideMenuNX {
+    position: relative;
+  }
   .sideMenuNX {
     position: relative;
   }
@@ -110,9 +170,22 @@
     width: 2rem;
     height: 100vh;
   }
+
   .showSideBar {
     position: absolute;
     height: 100vh;
-    width: 70%;
+    width: 60%;
+  }
+  .hiddenSelectedFoodSideBar {
+    position: absolute;
+    width: 2rem;
+    right: 0;
+    height: 100vh;
+  }
+  .showSelectedFoodSideBar {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    width: 50%;
   }
 }

@@ -16,7 +16,15 @@ const initState = (productArray) => {
 }
 function Customized_product() {
   const [isShowed, setIsShowed] = useState(true)
+  const [isShowedSelectFood, setIsShowedSelectFood] = useState(true)
   const [productsInOrder, setProductsInOrder] = useState(initState(foodList))
+  const [appendImage, setAppendImage] = useState({
+    id: '',
+    name: '',
+    category: '',
+    image: '',
+    price: '',
+  })
   const calcTotalNumber = () => {
     let total = 0
 
@@ -49,8 +57,8 @@ function Customized_product() {
           />
           <Canvas />
           <SelectedFood
-            isShowed={!isShowed}
-            setIsShowed={setIsShowed}
+            isShowedSelectFood={!isShowedSelectFood}
+            setIsShowedSelectFood={setIsShowedSelectFood}
             totalNumber={calcTotalNumber()}
             totalPrice={calcTotalPrice()}
           />

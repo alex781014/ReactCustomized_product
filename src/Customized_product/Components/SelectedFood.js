@@ -1,6 +1,8 @@
 // import ProductItem from './ProductItem'
 
 function SelectedFood(props) {
+  const { isShowedSelectFood, setIsShowedSelectFood } = props
+
   const createOptions = (min, max) => {
     const options = []
 
@@ -20,12 +22,26 @@ function SelectedFood(props) {
   // }
   return (
     <>
-      <div className="col-md-3 ">
-        <h3 className="text-center">已選食材</h3>
-        <div className="chooseArea d-flex  align-items-center ">
+      <div
+        className={
+          isShowedSelectFood
+            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar'
+            : 'col-md-3 selectedFoodSideMenuNX hiddenSelectedFoodSideBar'
+        }
+      >
+        <h3 className={isShowedSelectFood ? 'text-center' : 'text-center hidden'}>
+          已選食材
+        </h3>
+        <div
+          className={
+            isShowedSelectFood
+              ? 'chooseArea d-flex align-items-center '
+              : 'chooseArea d-flex align-items-center hidden'
+          }
+        >
           <div className="detilArea d-flex align-items-center justify-content-between flex-wrap w-100"></div>
         </div>
-        <div className="form-group">
+        <div className={isShowedSelectFood ? 'form-group' : 'form-group hidden'}>
           <label htmlFor="exampleFormControlSelect1">選擇便當數量</label>
           <select
             onChange="getcount()"
@@ -57,6 +73,16 @@ function SelectedFood(props) {
             送出
           </button>
         </div>
+        <button
+          className={
+            isShowedSelectFood ? 'leftArrow leftArrow-in' : 'leftArrow leftArrow-out'
+          }
+          onClick={() => setIsShowedSelectFood(isShowedSelectFood)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </>
   )
