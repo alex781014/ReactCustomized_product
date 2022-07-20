@@ -136,8 +136,15 @@
   padding: 0;
 }
 
-.chooseArea {
+/* .chooseArea {
   height: 40vh;
+} */
+.selectedDetil {
+  width: 65px;
+  height: 65px;
+}
+.fa-trash {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {

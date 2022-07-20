@@ -5,33 +5,7 @@ function Foods(props) {
   const [cData, setCData] = useState('')
   const { isShowed, setIsShowed } = props
   const { productsInOrder, setProductsInOrder } = props
-  const aaa = () => {
-    props.productsInOrder.map((v, i) => {
-      return (
-        <div key={v.id} className="d-flex">
-          <div className="fooddetail">
-            <img style={{ width: '50px' }} src={v.image} alt="" />
-          </div>
-          <p>{v.name}</p>
-          <p>價格:{v.price}</p>
-        </div>
-      )
-    })
 
-    // return (
-    //   <div className="d-flex">
-    //     <div className="fooddetail">
-    //       <img
-    //         style={{ width: '50px' }}
-    //         src={props.productsInOrder[0].image}
-    //         alt=""
-    //       />
-    //     </div>
-    //     <p>{props.productsInOrder[0].name}</p>
-    //     <p>價格:{props.productsInOrder[0].price}</p>
-    //   </div>
-    // )
-  }
 
   //  每個商品物件
   // {

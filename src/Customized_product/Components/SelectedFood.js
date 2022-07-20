@@ -4,6 +4,19 @@ function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
   const [foodCount, setFoodCount] = useState('')
   const { isShowedSelectFood, setIsShowedSelectFood } = props
+  // const {productsInOrder,setProductsInOrder} = props
+  // const removeItem = () =>{
+  //   const newDelete = productsInOrder.filter((v)=>{
+  //     return v.id !== v.id
+  //   })
+  //   setProductsInOrder(newDelete)
+  // }
+            //   removeItem={() => {
+            //   const newProductsInOrder = productsInOrder.filter((v) => {
+            //     return v.id !== v.id
+            //   })
+            //   setProductsInOrder(newProductsInOrder)
+            // }}
 
   // const createOptions = (min, max) => {
   //   const options = []
@@ -44,14 +57,26 @@ function SelectedFood(props) {
           className={
             isShowedSelectFood
               ? 'chooseArea d-flex align-items-center '
-              : 'chooseArea d-flex align-items-center hidden'
+              : 'chooseArea d-flex align-items-center hidden '
           }
         >
-          <div className="detilArea d-flex align-items-center justify-content-between flex-wrap w-100">
+          <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
             {props.dataFromFoodArea.map((v, i) => (
-              <p key={i}>{v.name}</p>
+              <div key={v.id} className="d-flex justify-content-between w-100">
+                <div className="selectedFoodImg">
+                  <img src={v.image} className=" selectedDetil" alt="" />
+                </div>
+                <div className="selectedFoodtxt d-flex align-items-center">
+                  <p key={i} className="m-0">
+                    {v.name}
+                  </p>
+                  <p className="m-0">價格:{v.price}</p>
+                </div>
+                <div className="selectedDelete d-flex align-items-center">
+                  <i className="fa-solid fa-trash"></i>
+                </div>
+              </div>
             ))}
-            <br />
           </div>
         </div>
         <div

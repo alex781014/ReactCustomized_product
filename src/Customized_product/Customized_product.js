@@ -59,6 +59,8 @@ function Customized_product() {
             totalPrice={calcTotalPrice()}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
+            productsInOrder={productsInOrder}
+            setProductsInOrder={setProductsInOrder}
           />
         </div>
       </div>
