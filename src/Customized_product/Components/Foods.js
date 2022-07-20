@@ -1,23 +1,53 @@
-// import { useState } from 'react'
+import { useState } from 'react'
+// import foodList from '../data/foodList.json'
+
 function Foods(props) {
+  const [cData, setCData] = useState('')
   const { isShowed, setIsShowed } = props
   const { productsInOrder, setProductsInOrder } = props
+  const aaa = () => {
+    props.productsInOrder.map((v, i) => {
+      return (
+        <div key={v.id} className="d-flex">
+          <div className="fooddetail">
+            <img style={{ width: '50px' }} src={v.image} alt="" />
+          </div>
+          <p>{v.name}</p>
+          <p>價格:{v.price}</p>
+        </div>
+      )
+    })
+
+    // return (
+    //   <div className="d-flex">
+    //     <div className="fooddetail">
+    //       <img
+    //         style={{ width: '50px' }}
+    //         src={props.productsInOrder[0].image}
+    //         alt=""
+    //       />
+    //     </div>
+    //     <p>{props.productsInOrder[0].name}</p>
+    //     <p>價格:{props.productsInOrder[0].price}</p>
+    //   </div>
+    // )
+  }
 
   //  每個商品物件
-  //   {
-  //     "id": 1,
-  //     "name": "白飯",
-  //     "category": "1",
-  //     "image": "images/rice.png",
-  //     "price": 10
-  //   }
+  // {
+  //   "id": 1,
+  //   "name": "白飯",
+  //   "category": "1",
+  //   "image": "images/rice.png",
+  //   "price": 10
+  // }
   return (
     <>
       <div
         className={
           isShowed
-            ? 'col-md-4 sideMenu showSideBar'
-            : 'col-md-4 sideMenuNX hiddenSideBar'
+            ? 'col-md-3 sideMenu showSideBar'
+            : 'col-md-3 sideMenuNX hiddenSideBar'
         }
       >
         <ul
@@ -109,9 +139,17 @@ function Foods(props) {
                       className="card border-0 align-items-center "
                     >
                       <img
+                        onClick={() => {
+                          console.log({ v })
+                          props.setDataFromFoodArea([
+                            ...props.dataFromFoodArea,
+                            v,
+                          ])
+                        }}
                         className="man card-img-top"
                         src={v.image}
                         alt={v.name}
+                        id={v.id}
                       />
 
                       <div className="card-body">
@@ -156,8 +194,12 @@ function Foods(props) {
                     >
                       <img
                         className="man card-img-top"
-                        onClick={(e) => {
-                          console.log(e.currentTarget.outerHTML)
+                        onClick={() => {
+                          console.log({ v })
+                          props.setDataFromFoodArea([
+                            ...props.dataFromFoodArea,
+                            v,
+                          ])
                         }}
                         src={v.image}
                         alt={v.name}
@@ -193,6 +235,13 @@ function Foods(props) {
                     >
                       <img
                         className="man card-img-top"
+                        onClick={() => {
+                          console.log({ v })
+                          props.setDataFromFoodArea([
+                            ...props.dataFromFoodArea,
+                            v,
+                          ])
+                        }}
                         src={v.image}
                         alt={v.name}
                       />

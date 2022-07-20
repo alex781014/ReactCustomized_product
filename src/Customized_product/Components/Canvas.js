@@ -3,7 +3,7 @@ import React from 'react'
 function Canvas() {
   return (
     <>
-      <div className="col-12 col-md-5">
+      <div className="col-12 col-md-6">
         <img
           className="d-none newImg"
           src="../images/images.jpg"
