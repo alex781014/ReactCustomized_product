@@ -147,6 +147,10 @@
   cursor: pointer;
 }
 
+.foodCard {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   .rightArrow {
     position: absolute;

@@ -11,7 +11,6 @@ const initState = (productArray) => {
   for (let i = 0; i < productArray.length; i++) {
     state.push({ ...productArray[i], count: 1 })
   }
-
   return state
 }
 function Customized_product() {

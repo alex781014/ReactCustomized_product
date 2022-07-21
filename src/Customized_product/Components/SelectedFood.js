@@ -4,19 +4,19 @@ function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
   const [foodCount, setFoodCount] = useState('')
   const { isShowedSelectFood, setIsShowedSelectFood } = props
-  // const {productsInOrder,setProductsInOrder} = props
+  const { productsInOrder, setProductsInOrder } = props
   // const removeItem = () =>{
   //   const newDelete = productsInOrder.filter((v)=>{
   //     return v.id !== v.id
   //   })
   //   setProductsInOrder(newDelete)
   // }
-            //   removeItem={() => {
-            //   const newProductsInOrder = productsInOrder.filter((v) => {
-            //     return v.id !== v.id
-            //   })
-            //   setProductsInOrder(newProductsInOrder)
-            // }}
+  //   removeItem={() => {
+  //   const newProductsInOrder = productsInOrder.filter((v) => {
+  //     return v.id !== v.id
+  //   })
+  //   setProductsInOrder(newProductsInOrder)
+  // }}
 
   // const createOptions = (min, max) => {
   //   const options = []
@@ -61,7 +61,8 @@ function SelectedFood(props) {
           }
         >
           <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
-            {props.dataFromFoodArea.map((v, i) => (
+            {/* 限制五次 */}
+            {props.dataFromFoodArea.slice(0, 5).map((v, i) => (
               <div key={v.id} className="d-flex justify-content-between w-100">
                 <div className="selectedFoodImg">
                   <img src={v.image} className=" selectedDetil" alt="" />
@@ -73,7 +74,17 @@ function SelectedFood(props) {
                   <p className="m-0">價格:{v.price}</p>
                 </div>
                 <div className="selectedDelete d-flex align-items-center">
-                  <i className="fa-solid fa-trash"></i>
+                  <i
+                    className="fa-solid fa-trash"
+                    onClick={() => {
+                      const newDelete = props.dataFromFoodArea.filter(
+                        (v2, i2) => {
+                          return i !== i2
+                        }
+                      )
+                      props.setDataFromFoodArea(newDelete)
+                    }}
+                  ></i>
                 </div>
               </div>
             ))}
