@@ -3,34 +3,17 @@ import { useState } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
   const [foodCount, setFoodCount] = useState('')
-  const { isShowedSelectFood, setIsShowedSelectFood } = props
+  const {
+    isShowedSelectFood,
+    setIsShowedSelectFood,
+    dataFromFoodArea,
+    setDataFromFoodArea
+  } = props
+  const {totalNumber,totalPrice} = props
   const { productsInOrder, setProductsInOrder } = props
-  // const removeItem = () =>{
-  //   const newDelete = productsInOrder.filter((v)=>{
-  //     return v.id !== v.id
-  //   })
-  //   setProductsInOrder(newDelete)
-  // }
-  //   removeItem={() => {
-  //   const newProductsInOrder = productsInOrder.filter((v) => {
-  //     return v.id !== v.id
-  //   })
-  //   setProductsInOrder(newProductsInOrder)
-  // }}
 
-  // const createOptions = (min, max) => {
-  //   const options = []
 
-  //   for (let i = min; i < max + 1; i++) {
-  //     // i 為數字類型，轉型只是為了統一狀態類型為字串
-  //     // 注意保持狀態值的類型在應用程式執行時都一致很重要
-  //     const v = String(i)
-  //     options.push(<option value={v}>{v}</option>)
-  //   }
-  //   return options
-  // }
-
-  const newArray = () => {
+  const lunchCount = () => {
     return Array(5)
       .fill(1)
       .map((v, i) => (
@@ -62,8 +45,8 @@ function SelectedFood(props) {
         >
           <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
             {/* 限制五次 */}
-            {props.dataFromFoodArea.slice(0, 5).map((v, i) => (
-              <div key={v.id} className="d-flex justify-content-between w-100">
+            {dataFromFoodArea.slice(0, 5).map((v, i) => (
+              <div {...v} key={v.id} className="d-flex justify-content-between w-100">
                 <div className="selectedFoodImg">
                   <img src={v.image} className=" selectedDetil" alt="" />
                 </div>
@@ -77,12 +60,12 @@ function SelectedFood(props) {
                   <i
                     className="fa-solid fa-trash"
                     onClick={() => {
-                      const newDelete = props.dataFromFoodArea.filter(
+                      const newDelete = dataFromFoodArea.filter(
                         (v2, i2) => {
                           return i !== i2
                         }
                       )
-                      props.setDataFromFoodArea(newDelete)
+                      setDataFromFoodArea(newDelete)
                     }}
                   ></i>
                 </div>
@@ -107,7 +90,7 @@ function SelectedFood(props) {
             <option value="" disabled>
               -- 請選擇 --
             </option>
-            {newArray()}
+            {lunchCount()}
           </select>
           <label htmlFor="exampleFormControlTextarea1">備註欄</label>
           <textarea
@@ -121,7 +104,7 @@ function SelectedFood(props) {
             name="custom_remark"
           ></textarea>
           <div className="priceArea btn btn-success my-3 w-100">
-            <p className="mb-0">總價:</p>
+            <p className="mb-0">總價:{totalPrice}</p>
           </div>
           <button
             type="submit"

@@ -9,7 +9,7 @@ const initState = (productArray) => {
   const state = []
 
   for (let i = 0; i < productArray.length; i++) {
-    state.push({ ...productArray[i], count: 1 })
+    state.push({ ...productArray[i], count: 1, id: productArray[i].id + new Date().getTime(), })
   }
   return state
 }

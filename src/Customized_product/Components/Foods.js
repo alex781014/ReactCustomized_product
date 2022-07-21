@@ -1,10 +1,11 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import foodList from '../data/foodList.json'
 
 function Foods(props) {
-  // const [cData, setCData] = useState('')
+  const [cData, setCData] = useState('')
   const { isShowed, setIsShowed } = props
-  const { productsInOrder, setProductsInOrder } = props
+  const { productsInOrder, setProductsInOrder ,dataFromFoodArea,setDataFromFoodArea} = props
+
 
   //  每個商品物件
   // {
@@ -110,22 +111,19 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
-                      onClick={() => {
-                        props.setDataFromFoodArea([
-                          ...props.dataFromFoodArea,
-                          v,
-                        ])
-                        console.log({
-                          ...props.dataFromFoodArea,
-                          v,
-                        })
-                      }}
                     >
                       <img
+                        onClick={() => {
+                          setDataFromFoodArea([
+                            ...dataFromFoodArea,
+                            v,
+                          ])
+                          
+                          
+                        }}
                         className="man card-img-top"
                         src={v.image}
                         alt={v.name}
-                        id={v.id}
                       />
 
                       <div className="card-body">
@@ -137,6 +135,7 @@ function Foods(props) {
                     </div>
                   )
                 })}
+
             </div>
           </div>
           <div
@@ -155,15 +154,17 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
-                      onClick={() => {
-                        props.setDataFromFoodArea([
-                          ...props.dataFromFoodArea,
-                          v,
-                        ])
-                      }}
                     >
                       <img
                         className="man card-img-top"
+                        onClick={() => {
+                          setDataFromFoodArea([
+                            ...dataFromFoodArea,
+                            v,
+                          ])
+                          console.log(v)
+
+                        }}
                         src={v.image}
                         alt={v.name}
                       />
@@ -195,16 +196,16 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
-                      onClick={() => {
-                        console.log({ v })
-                        props.setDataFromFoodArea([
-                          ...props.dataFromFoodArea,
-                          v,
-                        ])
-                      }}
                     >
                       <img
                         className="man card-img-top"
+                        onClick={() => {
+                          console.log({ v })
+                          setDataFromFoodArea([
+                            ...dataFromFoodArea,
+                            v,
+                          ])
+                        }}
                         src={v.image}
                         alt={v.name}
                       />
@@ -236,12 +237,6 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
-                      onClick={() => {
-                        props.setDataFromFoodArea([
-                          ...props.dataFromFoodArea,
-                          v,
-                        ])
-                      }}
                     >
                       <img
                         className="man card-img-top"
