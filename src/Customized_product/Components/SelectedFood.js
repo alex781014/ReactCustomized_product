@@ -2,12 +2,14 @@
 import { useState } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
-  const [foodCount, setFoodCount] = useState('')
+  // const {foodCount, setFoodCount}= p
   const {
     isShowedSelectFood,
     setIsShowedSelectFood,
     dataFromFoodArea,
-    setDataFromFoodArea
+    setDataFromFoodArea,
+    foodCount,
+    setFoodCount
   } = props
   const {totalNumber,totalPrice} = props
   const { productsInOrder, setProductsInOrder } = props
@@ -81,15 +83,13 @@ function SelectedFood(props) {
             value={foodCount}
             onChange={(e) => {
               setFoodCount(e.target.value)
+              console.log(e.target.value)
             }}
             className="form-control lunchbox_stock"
             id="exampleFormControlSelect1"
             name="lunchbox_stock"
             required
           >
-            <option value="" disabled>
-              -- 請選擇 --
-            </option>
             {lunchCount()}
           </select>
           <label htmlFor="exampleFormControlTextarea1">備註欄</label>

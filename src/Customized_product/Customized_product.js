@@ -5,34 +5,39 @@ import './Customized_product.css'
 import { useState } from 'react'
 import foodList from './data/foodList.json'
 //初始化狀態用的函式
-const initState = (productArray) => {
-  const state = []
+// const initState = (productArray) => {
+//   const state = []
 
-  for (let i = 0; i < productArray.length; i++) {
-    state.push({ ...productArray[i], count: 1, id: productArray[i].id + new Date().getTime(), })
-  }
-  return state
-}
+//   for (let i = 0; i < productArray.length; i++) {
+//     state.push({
+//       ...productArray[i],
+//       count: 1,
+//       id: productArray[i].id + new Date().getTime(),
+//     })
+//   }
+//   return state
+// }
 function Customized_product() {
   const [isShowed, setIsShowed] = useState(true)
   const [isShowedSelectFood, setIsShowedSelectFood] = useState(true)
   const [productsInOrder, setProductsInOrder] = useState(foodList)
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
-  const calcTotalNumber = () => {
-    let total = 0
+  const [foodCount, setFoodCount] = useState(1)
 
-    for (let i = 0; i < productsInOrder.length; i++) {
-      total += productsInOrder[i].count
-    }
 
-    return total
-  }
 
   const calcTotalPrice = () => {
     let total = 0
 
     for (let i = 0; i < dataFromFoodArea.length; i++) {
-      total += dataFromFoodArea[i].price
+      if(foodCount === null){
+        foodCount = 1
+      total += dataFromFoodArea[i].price * foodCount
+
+      }else{
+      total += dataFromFoodArea[i].price * foodCount
+
+      }
     }
     return total
   }
@@ -53,12 +58,13 @@ function Customized_product() {
           <SelectedFood
             isShowedSelectFood={!isShowedSelectFood}
             setIsShowedSelectFood={setIsShowedSelectFood}
-            totalNumber={calcTotalNumber()}
             totalPrice={calcTotalPrice()}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
             productsInOrder={productsInOrder}
             setProductsInOrder={setProductsInOrder}
+            foodCount={foodCount}
+            setFoodCount={setFoodCount}
           />
         </div>
       </div>
