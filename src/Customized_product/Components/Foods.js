@@ -111,21 +111,15 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
+                      onClick={() => {
+                        setDataFromFoodArea([...dataFromFoodArea, v])
+                      }}
                     >
                       <img
-                        onClick={() => {
-                          setDataFromFoodArea([
-                            ...dataFromFoodArea,
-                            v,
-                          ])
-                          
-                          
-                        }}
                         className="man card-img-top"
                         src={v.image}
                         alt={v.name}
                       />
-
                       <div className="card-body">
                         <p className="card-text text-center m-0 pName">
                           {v.name}
@@ -154,17 +148,12 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
+                      onClick={() => {
+                        setDataFromFoodArea([...dataFromFoodArea, v])
+                      }}
                     >
                       <img
                         className="man card-img-top"
-                        onClick={() => {
-                          setDataFromFoodArea([
-                            ...dataFromFoodArea,
-                            v,
-                          ])
-                          console.log(v)
-
-                        }}
                         src={v.image}
                         alt={v.name}
                       />
@@ -196,16 +185,12 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
+                      onClick={() => {
+                        setDataFromFoodArea([...dataFromFoodArea, v])
+                      }}
                     >
                       <img
                         className="man card-img-top"
-                        onClick={() => {
-                          console.log({ v })
-                          setDataFromFoodArea([
-                            ...dataFromFoodArea,
-                            v,
-                          ])
-                        }}
                         src={v.image}
                         alt={v.name}
                       />
@@ -237,6 +222,9 @@ function Foods(props) {
                     <div
                       key={v.id}
                       className="foodCard card border-0 align-items-center "
+                      onClick={() => {
+                        setDataFromFoodArea([...dataFromFoodArea, v])
+                      }}
                     >
                       <img
                         className="man card-img-top"

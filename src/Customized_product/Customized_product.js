@@ -16,7 +16,7 @@ const initState = (productArray) => {
 function Customized_product() {
   const [isShowed, setIsShowed] = useState(true)
   const [isShowedSelectFood, setIsShowedSelectFood] = useState(true)
-  const [productsInOrder, setProductsInOrder] = useState(initState(foodList))
+  const [productsInOrder, setProductsInOrder] = useState(foodList)
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
   const calcTotalNumber = () => {
     let total = 0
@@ -31,10 +31,9 @@ function Customized_product() {
   const calcTotalPrice = () => {
     let total = 0
 
-    for (let i = 0; i < productsInOrder.length; i++) {
-      total += productsInOrder[i].count * productsInOrder[i].price
+    for (let i = 0; i < dataFromFoodArea.length; i++) {
+      total += dataFromFoodArea[i].price
     }
-
     return total
   }
 
