@@ -1,5 +1,5 @@
 .card {
-  width: 28%;
+  width: 45%;
 }
 
 .nav-link {
@@ -136,9 +136,9 @@
   padding: 0;
 }
 
-/* .chooseArea {
-  height: 40vh;
-} */
+.chooseArea {
+  height: 45vh;
+}
 .selectedDetil {
   width: 65px;
   height: 65px;
@@ -151,7 +151,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 992px) {
   .rightArrow {
     position: absolute;
     display: block;
@@ -199,5 +199,19 @@
     right: 0;
     height: 100vh;
     width: 65%;
+  }
+  /* .card {
+    width: 35%;
+  } */
+  .card .card-img-top {
+    height: auto;
+  }
+  .selectedDetil {
+    width: 50px;
+    height: 50px;
+  }
+  .myCanvas {
+    width: 60%;
+    margin-top: 160px;
   }
 }

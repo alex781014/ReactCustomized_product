@@ -33,5 +33,12 @@
     "category": "3",
     "image": "images/squid.png",
     "price": 25
+  }, 
+   {
+    "id": 6,
+    "name": "炒花枝",
+    "category": "3",
+    "image": "images/squid.png",
+    "price": 25
   }
 ]

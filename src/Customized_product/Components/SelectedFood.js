@@ -2,18 +2,15 @@
 import { useState } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
-  // const {foodCount, setFoodCount}= p
   const {
     isShowedSelectFood,
     setIsShowedSelectFood,
     dataFromFoodArea,
     setDataFromFoodArea,
     foodCount,
-    setFoodCount
+    setFoodCount,
+    totalPrice,
   } = props
-  const {totalNumber,totalPrice} = props
-  const { productsInOrder, setProductsInOrder } = props
-
 
   const lunchCount = () => {
     return Array(5)
@@ -30,7 +27,7 @@ function SelectedFood(props) {
         className={
           isShowedSelectFood
             ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar'
-            : 'col-md-3 selectedFoodSideMenuNX hiddenSelectedFoodSideBar'
+            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar'
         }
       >
         <h3
@@ -47,32 +44,61 @@ function SelectedFood(props) {
         >
           <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
             {/* 限制五次 */}
-            {dataFromFoodArea.slice(0, 5).map((v, i) => (
-              <div {...v} key={v.id} className="d-flex justify-content-between w-100">
-                <div className="selectedFoodImg">
-                  <img src={v.image} className=" selectedDetil" alt="" />
-                </div>
-                <div className="selectedFoodtxt d-flex align-items-center">
-                  <p key={i} className="m-0">
+            {dataFromFoodArea.slice(0, 5).map((v, i) => {
+              const v2 = { ...v, tid: Math.round(Math.random() * 10_000_000) }
+              return (
+                <div
+                  {...v2}
+                  key={'foods' + v2.tid}
+                  className="d-flex justify-content-between w-100"
+                >
+                  <div
+                    className={
+                      isShowedSelectFood
+                        ? 'selectedFoodImg'
+                        : 'selectedFoodImg hidden'
+                    }
+                  >
+                    <img src={v.image} className=" selectedDetil" alt="" />
+                  </div>
+
+                  <p
+                    key={i}
+                    className={
+                      isShowedSelectFood
+                        ? 'm-0 align-self-center'
+                        : 'm-0 align-self-center hidden'
+                    }
+                  >
                     {v.name}
                   </p>
-                  <p className="m-0">價格:{v.price}</p>
-                </div>
-                <div className="selectedDelete d-flex align-items-center">
-                  <i
-                    className="fa-solid fa-trash"
-                    onClick={() => {
-                      const newDelete = dataFromFoodArea.filter(
-                        (v2, i2) => {
+                  <p
+                    className={
+                      isShowedSelectFood
+                        ? 'm-0 align-self-center'
+                        : 'm-0 align-self-center hidden'
+                    }
+                  >
+                    價格:{v.price}
+                  </p>
+                  <div className="selectedDelete d-flex align-items-center">
+                    <i
+                      className={
+                        isShowedSelectFood
+                          ? 'fa-solid fa-trash'
+                          : 'fa-solid fa-trash hidden'
+                      }
+                      onClick={() => {
+                        const newDelete = dataFromFoodArea.filter((v2, i2) => {
                           return i !== i2
-                        }
-                      )
-                      setDataFromFoodArea(newDelete)
-                    }}
-                  ></i>
+                        })
+                        setDataFromFoodArea(newDelete)
+                      }}
+                    ></i>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
         <div

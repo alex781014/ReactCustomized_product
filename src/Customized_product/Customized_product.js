@@ -24,20 +24,11 @@ function Customized_product() {
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
   const [foodCount, setFoodCount] = useState(1)
 
-
-
   const calcTotalPrice = () => {
     let total = 0
 
     for (let i = 0; i < dataFromFoodArea.length; i++) {
-      if(foodCount === null){
-        foodCount = 1
       total += dataFromFoodArea[i].price * foodCount
-
-      }else{
-      total += dataFromFoodArea[i].price * foodCount
-
-      }
     }
     return total
   }
@@ -54,7 +45,11 @@ function Customized_product() {
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
           />
-          <Canvas />
+          <Canvas
+            productsInOrder={productsInOrder}
+            dataFromFoodArea={dataFromFoodArea}
+            setDataFromFoodArea={setDataFromFoodArea}
+          />
           <SelectedFood
             isShowedSelectFood={!isShowedSelectFood}
             setIsShowedSelectFood={setIsShowedSelectFood}

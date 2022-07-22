@@ -1,11 +1,9 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 // import foodList from '../data/foodList.json'
 
 function Foods(props) {
-  const [cData, setCData] = useState('')
   const { isShowed, setIsShowed } = props
-  const { productsInOrder, setProductsInOrder ,dataFromFoodArea,setDataFromFoodArea} = props
-
+  const { productsInOrder, dataFromFoodArea, setDataFromFoodArea } = props
 
   //  每個商品物件
   // {
@@ -20,8 +18,8 @@ function Foods(props) {
       <div
         className={
           isShowed
-            ? 'col-md-3 sideMenu showSideBar'
-            : 'col-md-3 sideMenuNX hiddenSideBar'
+            ? 'col-md-3 sideMenu showSideBar '
+            : 'col-md-3 sideMenuNX hiddenSideBar '
         }
       >
         <ul
@@ -35,7 +33,7 @@ function Foods(props) {
         >
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link active  m-md-auto"
+              className="nav-link active  m-auto"
               id="staple-food"
               data-bs-toggle="pill"
               data-bs-target="#pills-staple-food"
@@ -49,7 +47,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-md-auto"
+              className="nav-link  m-auto"
               id="meal"
               data-bs-toggle="pill"
               data-bs-target="#pills-meal"
@@ -63,7 +61,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-md-auto"
+              className="nav-link  m-auto"
               id="seafood"
               data-bs-toggle="pill"
               data-bs-target="#pills-seafood"
@@ -77,7 +75,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-md-auto"
+              className="nav-link  m-auto px-0"
               id="vegetable"
               data-bs-toggle="pill"
               data-bs-target="#pills-vegetable"
@@ -110,7 +108,7 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard card border-0 align-items-center "
+                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                       }}
@@ -124,12 +122,11 @@ function Foods(props) {
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
-                        <p className="card-text text-center">價格:{v.price}</p>
+                        <p className="card-text text-center">價格{v.price}</p>
                       </div>
                     </div>
                   )
                 })}
-
             </div>
           </div>
           <div
@@ -147,7 +144,7 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard card border-0 align-items-center "
+                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                       }}
@@ -184,7 +181,7 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard card border-0 align-items-center "
+                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                       }}
@@ -221,7 +218,7 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard card border-0 align-items-center "
+                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                       }}
