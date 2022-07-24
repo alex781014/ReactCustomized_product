@@ -1,9 +1,23 @@
 // import { useState } from 'react'
 // import foodList from '../data/foodList.json'
 
+
+
 function Foods(props) {
   const { isShowed, setIsShowed } = props
-  const { productsInOrder, dataFromFoodArea, setDataFromFoodArea } = props
+  const { productsInOrder, dataFromFoodArea, setDataFromFoodArea ,cart,setCart} = props
+    const addItem = (item) => {
+      const newItem = { ...item, tid: Date.now() }
+      console.log(newItem)
+      setCart([...cart, newItem])
+    }
+    const limitTimes = ()=>{
+      let count = 0;
+      count++
+      if(count >=5){
+        alert("123")
+      }
+    }
 
   //  每個商品物件
   // {
@@ -108,9 +122,11 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
+                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center"
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
+                        addItem(v)
+                        limitTimes()
                       }}
                     >
                       <img
@@ -147,6 +163,7 @@ function Foods(props) {
                       className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
+                        addItem(v)
                       }}
                     >
                       <img
@@ -184,6 +201,7 @@ function Foods(props) {
                       className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
+                        addItem(v)
                       }}
                     >
                       <img
@@ -221,6 +239,7 @@ function Foods(props) {
                       className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
+                        addItem(v)
                       }}
                     >
                       <img

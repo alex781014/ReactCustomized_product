@@ -23,6 +23,7 @@ function Customized_product() {
   const [productsInOrder, setProductsInOrder] = useState(foodList)
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
   const [foodCount, setFoodCount] = useState(1)
+  const [cart, setCart] = useState([])
 
   const calcTotalPrice = () => {
     let total = 0
@@ -44,11 +45,15 @@ function Customized_product() {
             setProductsInOrder={setProductsInOrder}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
+            cart={cart}
+            setCart={setCart}
           />
           <Canvas
             productsInOrder={productsInOrder}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
+            cart={cart}
+            setCart={setCart}
           />
           <SelectedFood
             isShowedSelectFood={!isShowedSelectFood}
@@ -60,6 +65,8 @@ function Customized_product() {
             setProductsInOrder={setProductsInOrder}
             foodCount={foodCount}
             setFoodCount={setFoodCount}
+            cart={cart}
+            setCart={setCart}
           />
         </div>
       </div>

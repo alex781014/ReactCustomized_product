@@ -10,7 +10,14 @@ function SelectedFood(props) {
     foodCount,
     setFoodCount,
     totalPrice,
+    cart,
+    setCart
   } = props
+    const removeItem = (index) => {
+      const newCart = [...cart]
+      newCart.splice(index, 1)
+      setCart(newCart)
+    }
 
   const lunchCount = () => {
     return Array(5)
@@ -93,6 +100,7 @@ function SelectedFood(props) {
                           return i !== i2
                         })
                         setDataFromFoodArea(newDelete)
+                        removeItem(i)
                       }}
                     ></i>
                   </div>
