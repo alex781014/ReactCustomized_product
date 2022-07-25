@@ -156,7 +156,7 @@ function SelectedFood(props) {
             type="submit"
             className="btn btn-primary w-100"
             style={{ display: 'block' }}
-            // onSubmit={saveCanvas}
+            // onSubmit={saveCanvas}  //點擊送出按鈕沒有動
           >
             送出
           </button>
