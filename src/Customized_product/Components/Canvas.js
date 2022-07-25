@@ -60,14 +60,14 @@ function Canvas(props) {
     realCtx.drawImage(shadowRef.current, 0, 0)
   }
   // 存canvas畫布
-  const saveCanvas = () => {
-    const imgTxt = cRef.current
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream')
-    let key = 'draw-food;;' + new Date().getTime()
-    localStorage.setItem(key, imgTxt)
-    console.log(key, imgTxt)
-  }
+  // const saveCanvas = () => {
+  //   const imgTxt = cRef.current
+  //     .toDataURL('image/png')
+  //     .replace('image/png', 'image/octet-stream')
+  //   let key = 'draw-food;;' + new Date().getTime()
+  //   sessionStorage.setItem(key, imgTxt)
+  //   console.log(key, imgTxt)
+  // }
 
   useEffect(() => {
     doDraw()
@@ -85,6 +85,22 @@ function Canvas(props) {
   return (
     <>
       <div className="col-12 col-md-6 canvas text-center">
+        <nav aria-label="breadcrumb">
+          <ol
+            className="breadcrumb ms-3
+          "
+          >
+            <li className="breadcrumb-item ">
+              <a className="text-decoration-none" href="#/">
+                首頁
+              </a>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              客製化餐點
+            </li>
+          </ol>
+        </nav>
+        <h2 className="xinCanvasTitle">客製化餐點</h2>
         <canvas ref={shadowRef} width="500" height="500" hidden></canvas>
         <canvas
           className="canvasFood"
@@ -93,7 +109,7 @@ function Canvas(props) {
           width="500"
           height="500"
         ></canvas>
-        <button onClick={saveCanvas}>存起來</button>
+        {/* <button onClick={saveCanvas}>存起來</button> */}
       </div>
     </>
   )

@@ -149,7 +149,7 @@ function SelectedFood(props) {
             rows="3"
             name="custom_remark"
           ></textarea>
-          <div className="priceArea btn btn-success my-3 w-100">
+          <div className="priceArea xin-btn btn btn-success my-3 w-100">
             <p className="mb-0">總價:{totalPrice}</p>
           </div>
           <button
