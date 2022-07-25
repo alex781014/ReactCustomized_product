@@ -22,7 +22,7 @@
   },
   {
     "id": 4,
-    "name": "花椰菜",
+    "name": "水煮花椰菜",
     "category": "4",
     "image": "images/vegtable.png",
     "price": 20
@@ -36,9 +36,65 @@
   }, 
    {
     "id": 6,
-    "name": "炒花枝",
+    "name": "煎白帶魚",
     "category": "3",
-    "image": "images/lunchBox.png",
-    "price": 25
+    "image": "images/Friedwhitehairfish.png",
+    "price": 35
+  },
+   {
+    "id": 7,
+    "name": "麵",
+    "category": "1",
+    "image": "images/noodles.png",
+    "price": 10
+  },
+   {
+    "id": 8,
+    "name": "米粉",
+    "category": "1",
+    "image": "images/ricenoodles.png",
+    "price": 10
+  },
+   {
+    "id": 9,
+    "name": "冬粉",
+    "category": "1",
+    "image": "images/waternoodles.png",
+    "price": 15
+  },
+   {
+    "id": 10,
+    "name": "番茄炒蛋",
+    "category": "4",
+    "image": "images/tomatoeggs.png",
+    "price": 20
+  },
+   {
+    "id": 11,
+    "name": "炒高麗菜",
+    "category": "4",
+    "image": "images/friedcabbage.png",
+    "price": 15
+  },
+   {
+    "id": 12,
+    "name": "義式雞胸",
+    "category": "2",
+    "image": "images/grilledchicken.png",
+    "price": 40
+  },
+   {
+    "id": 13,
+    "name": "炸雞腿排",
+    "category": "2",
+    "image": "images/friedlegsteak.png",
+    "price": 45
+  },
+   {
+    "id": 14,
+    "name": "魯控肉",
+    "category": "2",
+    "image": "images/controlmeat.png",
+    "price": 45
   }
 ]

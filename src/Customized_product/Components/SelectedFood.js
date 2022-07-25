@@ -151,8 +151,8 @@ function SelectedFood(props) {
         <button
           className={
             isShowedSelectFood
-              ? 'leftArrow leftArrow-in'
-              : 'leftArrow leftArrow-out'
+              ? 'xin-leftArrow xin-leftArrow-in'
+              : 'xin-leftArrow xin-leftArrow-out'
           }
           onClick={() => setIsShowedSelectFood(isShowedSelectFood)}
         >

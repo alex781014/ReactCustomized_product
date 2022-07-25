@@ -8,16 +8,9 @@ function Foods(props) {
   const { productsInOrder, dataFromFoodArea, setDataFromFoodArea ,cart,setCart} = props
     const addItem = (item) => {
       const newItem = { ...item, tid: Date.now() }
-      console.log(newItem)
       setCart([...cart, newItem])
     }
-    const limitTimes = ()=>{
-      let count = 0;
-      count++
-      if(count >=5){
-        alert("123")
-      }
-    }
+
 
   //  每個商品物件
   // {
@@ -32,8 +25,8 @@ function Foods(props) {
       <div
         className={
           isShowed
-            ? 'col-md-3 sideMenu showSideBar '
-            : 'col-md-3 sideMenuNX hiddenSideBar '
+            ? 'col-md-3 xin-sideMenu showSideBar xin-food-area'
+            : 'col-md-3 sideMenuNX hiddenSideBar xin-food-area'
         }
       >
         <ul
@@ -47,7 +40,7 @@ function Foods(props) {
         >
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link active  m-auto"
+              className="xin-nav-link nav-link active  m-auto"
               id="staple-food"
               data-bs-toggle="pill"
               data-bs-target="#pills-staple-food"
@@ -61,7 +54,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto"
+              className="xin-nav-link nav-link  m-auto"
               id="meal"
               data-bs-toggle="pill"
               data-bs-target="#pills-meal"
@@ -75,7 +68,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto"
+              className="xin-nav-link nav-link  m-auto"
               id="seafood"
               data-bs-toggle="pill"
               data-bs-target="#pills-seafood"
@@ -89,7 +82,7 @@ function Foods(props) {
           </li>
           <li className="nav-item col-3 " role="presentation">
             <button
-              className="nav-link  m-auto px-0"
+              className="xin-nav-link nav-link  m-auto px-0"
               id="vegetable"
               data-bs-toggle="pill"
               data-bs-target="#pills-vegetable"
@@ -122,19 +115,18 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center"
+                      className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center"
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
-                        limitTimes()
                       }}
                     >
                       <img
-                        className="man card-img-top"
+                        className="man xin-card-img-top"
                         src={v.image}
                         alt={v.name}
                       />
-                      <div className="card-body">
+                      <div className="card-body xin-card-body">
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
@@ -160,19 +152,19 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
+                      className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
                       }}
                     >
                       <img
-                        className="man card-img-top"
+                        className="man xin-card-img-top"
                         src={v.image}
                         alt={v.name}
                       />
 
-                      <div className="card-body">
+                      <div className="card-body xin-card-body">
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
@@ -198,19 +190,19 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
+                      className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
                       }}
                     >
                       <img
-                        className="man card-img-top"
+                        className="man xin-card-img-top"
                         src={v.image}
                         alt={v.name}
                       />
 
-                      <div className="card-body">
+                      <div className="card-body xin-card-body">
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
@@ -236,19 +228,19 @@ function Foods(props) {
                   return (
                     <div
                       key={v.id}
-                      className="foodCard col-md-4 col-5 mb-3 card border-0 align-items-center "
+                      className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
                       }}
                     >
                       <img
-                        className="man card-img-top"
+                        className="man xin-card-img-top"
                         src={v.image}
                         alt={v.name}
                       />
 
-                      <div className="card-body">
+                      <div className="card-body xin-card-body">
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
@@ -262,7 +254,9 @@ function Foods(props) {
         </div>
         <button
           className={
-            isShowed ? 'rightArrow rightArrow-in' : 'rightArrow rightArrow-out'
+            isShowed
+              ? 'xin-rightArrow xin-rightArrow-in'
+              : 'xin-rightArrow xin-rightArrow-out'
           }
           onClick={() => setIsShowed(isShowed)}
         >

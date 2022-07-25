@@ -1,17 +1,23 @@
-.card {
-  width: 45%;
+* {
+  box-sizing: border-box;
 }
-
-.nav-link {
+.xin-nav-link {
   padding: 0.5rem 0.25rem;
+}
+.xin-sideMenu {
+  z-index: 1;
 }
 
 .pho-bg {
   position: relative;
-  transition: 0.4s;
+  /* transition: 0.4s; */
   /* background-color: rgb(244, 191, 191); */
 }
-.rightArrow {
+
+.xin-food-area {
+  background-color: #fff;
+}
+.xin-rightArrow {
   display: none;
   position: absolute;
   right: -22px;
@@ -27,7 +33,7 @@
   width: 54px;
 }
 
-.rightArrow span {
+.xin-rightArrow span {
   display: block;
   margin-top: 2px;
   background-color: #fff;
@@ -37,34 +43,34 @@
   transition: 0.2s;
 }
 
-.rightArrow:hover span {
+.xin-rightArrow:hover span {
   margin: auto;
 }
 
-.rightArrow-in:hover span:nth-child(1) {
+.xin-rightArrow-in:hover span:nth-child(1) {
   width: 25px;
   transform: translate(-3px, 8px) rotate(30deg);
 }
-.rightArrow-in:hover span:nth-child(2) {
+.xin-rightArrow-in:hover span:nth-child(2) {
   display: none;
 }
-.rightArrow-in:hover span:nth-child(3) {
+.xin-rightArrow-in:hover span:nth-child(3) {
   width: 25px;
   transform: translate(-3px, -8px) rotate(-30deg);
 }
 
-.rightArrow-out:hover span:nth-child(1) {
+.xin-rightArrow-out:hover span:nth-child(1) {
   width: 25px;
   transform: translate(0px, 8px) rotate(-30deg);
 }
-.rightArrow-out:hover span:nth-child(2) {
+.xin-rightArrow-out:hover span:nth-child(2) {
   display: none;
 }
-.rightArrow-out:hover span:nth-child(3) {
+.xin-rightArrow-out:hover span:nth-child(3) {
   width: 25px;
   transform: translate(0px, -8px) rotate(30deg);
 }
-.leftArrow {
+.xin-leftArrow {
   display: none;
   position: absolute;
   right: 0px;
@@ -80,7 +86,7 @@
   width: 54px;
 }
 
-.leftArrow span {
+.xin-leftArrow span {
   display: block;
   margin-top: 2px;
   background-color: #fff;
@@ -90,50 +96,54 @@
   transition: 0.2s;
 }
 
-.leftArrow:hover span {
+.xin-leftArrow:hover span {
   margin: auto;
 }
 
-.leftArrow-in:hover span:nth-child(1) {
+.xin-leftArrow-in:hover span:nth-child(1) {
   width: 25px;
   transform: translate(-3px, 8px) rotate(-30deg);
 }
-.leftArrow-in:hover span:nth-child(2) {
+.xin-leftArrow-in:hover span:nth-child(2) {
   display: none;
 }
-.leftArrow-in:hover span:nth-child(3) {
+.xin-leftArrow-in:hover span:nth-child(3) {
   width: 25px;
   transform: translate(-3px, -8px) rotate(30deg);
 }
 
-.leftArrow-out:hover span:nth-child(1) {
+.xin-leftArrow-out:hover span:nth-child(1) {
   width: 25px;
   transform: translate(0px, 8px) rotate(30deg);
 }
-.leftArrow-out:hover span:nth-child(2) {
+.xin-leftArrow-out:hover span:nth-child(2) {
   display: none;
 }
-.leftArrow-out:hover span:nth-child(3) {
+.xin-leftArrow-out:hover span:nth-child(3) {
   width: 25px;
   transform: translate(0px, -8px) rotate(-30deg);
 }
 
-/* .card .card-img-top {
+/* .card .xin-card-img-top {
   width: 100%;
   height: auto;
   object-fit: cover;
   /* border-radius: 50%; */
 /* border: 1px solid red; */
 
-.card .card-img-top {
+.card .xin-card-img-top {
   width: 100%;
   height: 7vw;
   object-fit: contain;
   flex-grow: 1;
 }
 
-.card-body {
+.xin-card-body {
   padding: 0;
+}
+
+.selectedFoodArea {
+  background-color: #fff;
 }
 
 .chooseArea {
@@ -158,11 +168,11 @@
 }
 
 @media screen and (max-width: 992px) {
-  .rightArrow {
+  .xin-rightArrow {
     position: absolute;
     display: block;
   }
-  .leftArrow {
+  .xin-leftArrow {
     position: absolute;
     left: -30px;
     display: block;
@@ -173,7 +183,7 @@
   .sideMenuNX {
     position: relative;
   }
-  .nav-link {
+  .xin-nav-link {
     padding: 0rem;
     margin: 0;
   }
@@ -186,6 +196,7 @@
     position: absolute;
     width: 2rem;
     height: 100vh;
+    transition: all 0.2s;
   }
 
   .showSideBar {
@@ -198,6 +209,7 @@
     width: 1rem;
     right: 0;
     height: 100vh;
+    transition: all 0.2s;
   }
 
   .showSelectedFoodSideBar {
@@ -206,18 +218,16 @@
     height: 100vh;
     width: 65%;
   }
-  /* .card {
-    width: 35%;
-  } */
-  .card .card-img-top {
+
+  .card .xin-card-img-top {
     height: auto;
   }
   .selectedDetil {
     width: 50px;
     height: 50px;
   }
-  .myCanvas {
-    width: 60%;
-    margin-top: 160px;
+  .canvasFood {
+    margin-top: 180px;
+    width: 50%;
   }
 }
