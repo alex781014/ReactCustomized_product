@@ -1,5 +1,6 @@
+/* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
   const {
@@ -11,13 +12,25 @@ function SelectedFood(props) {
     setFoodCount,
     totalPrice,
     cart,
-    setCart
+    setCart,
   } = props
-    const removeItem = (index) => {
-      const newCart = [...cart]
-      newCart.splice(index, 1)
-      setCart(newCart)
-    }
+
+  // 想要把Canvas裡 存canvas畫布的語法寫過來 但是完全沒有動..
+  // const cRef = useRef()
+  // const saveCanvas = () => {
+  //   const imgTxt = cRef.current
+  //     .toDataURL('image/png')
+  //     .replace('image/png', 'image/octet-stream')
+  //   let key = 'draw-food;;' + new Date().getTime()
+  //   localStorage.setItem(key, imgTxt)
+  //   console.log(key, imgTxt)
+  // }
+
+  const removeItem = (index) => {
+    const newCart = [...cart]
+    newCart.splice(index, 1)
+    setCart(newCart)
+  }
 
   const lunchCount = () => {
     return Array(5)
@@ -117,7 +130,6 @@ function SelectedFood(props) {
             value={foodCount}
             onChange={(e) => {
               setFoodCount(e.target.value)
-              console.log(e.target.value)
             }}
             className="form-control lunchbox_stock"
             id="exampleFormControlSelect1"
@@ -144,6 +156,7 @@ function SelectedFood(props) {
             type="submit"
             className="btn btn-primary w-100"
             style={{ display: 'block' }}
+            // onSubmit={saveCanvas}
           >
             送出
           </button>

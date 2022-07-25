@@ -1,16 +1,19 @@
 // import { useState } from 'react'
 // import foodList from '../data/foodList.json'
 
-
-
 function Foods(props) {
   const { isShowed, setIsShowed } = props
-  const { productsInOrder, dataFromFoodArea, setDataFromFoodArea ,cart,setCart} = props
-    const addItem = (item) => {
-      const newItem = { ...item, tid: Date.now() }
-      setCart([...cart, newItem])
-    }
-
+  const {
+    productsInOrder,
+    dataFromFoodArea,
+    setDataFromFoodArea,
+    cart,
+    setCart,
+  } = props
+  const addItem = (item) => {
+    const newItem = { ...item, tid: Date.now() }
+    setCart([...cart, newItem])
+  }
 
   //  每個商品物件
   // {
