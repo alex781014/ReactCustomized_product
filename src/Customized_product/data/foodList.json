@@ -92,9 +92,16 @@
   },
    {
     "id": 14,
-    "name": "魯控肉",
+    "name": "滷控肉",
     "category": "2",
     "image": "images/controlmeat.png",
     "price": 45
+  },
+   {
+    "id": 15,
+    "name": "紅燒肉",
+    "category": "2",
+    "image": "images/redfirepork.png",
+    "price": 40
   }
 ]

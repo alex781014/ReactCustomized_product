@@ -28,8 +28,8 @@ function Foods(props) {
       <div
         className={
           isShowed
-            ? 'col-md-3 xin-sideMenu showSideBar xin-food-area'
-            : 'col-md-3 sideMenuNX hiddenSideBar xin-food-area'
+            ? 'col-md-3 xin-sideMenu showSideBar xin-food-area '
+            : 'col-md-3 sideMenuNX hiddenSideBar xin-food-area '
         }
       >
         <ul
@@ -41,7 +41,7 @@ function Foods(props) {
           id="pills-tab"
           role="tablist"
         >
-          <li className="nav-item col-3 " role="presentation">
+          <li className="nav-item xin-nav-item col-3 " role="presentation">
             <button
               className="xin-nav-link nav-link active  m-auto"
               id="staple-food"
@@ -55,7 +55,7 @@ function Foods(props) {
               主食
             </button>
           </li>
-          <li className="nav-item col-3 " role="presentation">
+          <li className="nav-item xin-nav-item col-3 " role="presentation">
             <button
               className="xin-nav-link nav-link  m-auto"
               id="meal"
@@ -69,7 +69,7 @@ function Foods(props) {
               肉類
             </button>
           </li>
-          <li className="nav-item col-3 " role="presentation">
+          <li className="nav-item xin-nav-item col-3 " role="presentation">
             <button
               className="xin-nav-link nav-link  m-auto"
               id="seafood"
@@ -83,7 +83,7 @@ function Foods(props) {
               海鮮
             </button>
           </li>
-          <li className="nav-item col-3 " role="presentation">
+          <li className="nav-item xin-nav-item col-3 " role="presentation">
             <button
               className="xin-nav-link nav-link  m-auto px-0"
               id="vegetable"
@@ -133,7 +133,7 @@ function Foods(props) {
                         <p className="card-text text-center m-0 pName">
                           {v.name}
                         </p>
-                        <p className="card-text text-center">價格{v.price}</p>
+                        <p className="card-text text-center">價格:{v.price}</p>
                       </div>
                     </div>
                   )

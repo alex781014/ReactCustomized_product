@@ -25,6 +25,7 @@ function Customized_product() {
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
   const [foodCount, setFoodCount] = useState(1)
   const [cart, setCart] = useState([])
+
   // const [userData, setUserData] = useState([]) //撈資料庫
 
   // const getUserData = async () => {

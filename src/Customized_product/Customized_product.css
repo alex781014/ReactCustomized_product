@@ -4,9 +4,26 @@
 }
 .xin-nav-link {
   padding: 0.5rem 0.25rem;
+  color: white;
 }
 .xin-sideMenu {
   z-index: 1;
+}
+.xin-nav-item {
+  background-color: #3a2c2c;
+  border: 1px solid white;
+}
+
+.xin-nav-item .xin-nav-link.active {
+  background-color: transparent;
+}
+
+.xin-nav-item:hover {
+  background-color: #fff;
+  border: 1px solid #3a2c2c;
+}
+.xin-nav-item:hover .xin-nav-link {
+  color: #3a2c2c;
 }
 
 .pho-bg {
@@ -16,6 +33,7 @@
 }
 
 .xin-food-area {
+  padding-top: 80px;
   background-color: #fff;
   border-right: 1px solid #eff0ea;
   border-bottom: 1px solid #eff0ea;
@@ -146,13 +164,14 @@
 }
 
 .selectedFoodArea {
+  padding-top: 80px;
   background-color: #fff;
   border-left: 1px solid#EFF0EA;
   border-bottom: 1px solid#EFF0EA;
 }
 
 .chooseArea {
-  height: 45vh;
+  height: 40vh;
 }
 .selectedDetil {
   width: 65px;
@@ -182,7 +201,9 @@
 }
 .xinCanvasTitle {
   font-size: 35px;
+  font-weight: 900;
 }
+
 @media screen and (max-width: 992px) {
   .xin-rightArrow {
     position: absolute;

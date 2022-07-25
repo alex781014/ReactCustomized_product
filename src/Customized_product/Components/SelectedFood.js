@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
+import React from 'react'
 import { useState, useRef } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
@@ -13,18 +14,17 @@ function SelectedFood(props) {
     totalPrice,
     cart,
     setCart,
+    cRef,
   } = props
 
-  // 想要把Canvas裡 存canvas畫布的語法寫過來 但是完全沒有動..
-  // const cRef = useRef()
-  // const saveCanvas = () => {
-  //   const imgTxt = cRef.current
-  //     .toDataURL('image/png')
-  //     .replace('image/png', 'image/octet-stream')
-  //   let key = 'draw-food;;' + new Date().getTime()
-  //   localStorage.setItem(key, imgTxt)
-  //   console.log(key, imgTxt)
-  // }
+  const saveCanvas = () => {
+    const imgTxt = cRef.current
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream')
+    let key = 'draw-food;;' + new Date().getTime()
+    sessionStorage.setItem(key, imgTxt)
+    console.log(key, imgTxt)
+  }
 
   const removeItem = (index) => {
     const newCart = [...cart]
@@ -41,6 +41,14 @@ function SelectedFood(props) {
         </option>
       ))
   }
+
+  // const SendOreder = React.forwardRef((props, cRef) => {
+  //   return (
+  //     <button ref={cRef} {...props} className="btn btn-primary w-100">
+  //       {props.children}
+  //     </button>
+  //   )
+  // })
   return (
     <>
       <div
@@ -51,7 +59,9 @@ function SelectedFood(props) {
         }
       >
         <h3
-          className={isShowedSelectFood ? 'text-center' : 'text-center hidden'}
+          className={
+            isShowedSelectFood ? 'text-center ' : 'text-center hidden '
+          }
         >
           已選食材
         </h3>
@@ -156,7 +166,7 @@ function SelectedFood(props) {
             type="submit"
             className="btn btn-primary w-100"
             style={{ display: 'block' }}
-            // onSubmit={saveCanvas}  //點擊送出按鈕沒有動
+            onSubmit={saveCanvas} //點擊送出按鈕沒有動
           >
             送出
           </button>
