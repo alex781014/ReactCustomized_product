@@ -3,6 +3,7 @@
   color: #3a2c2c;
 }
 .xin-nav-link {
+  background-color: #3a2c2c;
   padding: 0.5rem 0.25rem;
   color: white;
 }
@@ -12,6 +13,10 @@
 .xin-nav-item {
   background-color: #3a2c2c;
   border: 1px solid white;
+}
+.xin-nav-item.active {
+  background-color: #fff;
+  color: #3a2c2c;
 }
 
 .xin-nav-item .xin-nav-link.active {
