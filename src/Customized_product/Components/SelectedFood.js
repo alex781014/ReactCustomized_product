@@ -24,15 +24,15 @@ function SelectedFood(props) {
       <div
         className={
           isShowedSelectFood
-            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column justify-content-evenly'
-            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column justify-content-evenly'
+            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column justify-content-between'
+            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column justify-content-between'
         }
       >
         <h3
           className={
             isShowedSelectFood
-              ? 'text-center xin-font-primary-color mt-5 '
-              : 'text-center hidden xin-font-primary-color'
+              ? 'text-center xin-font-primary-color '
+              : 'text-center hidden xin-font-primary-color mt-5 '
           }
         >
           已選食材

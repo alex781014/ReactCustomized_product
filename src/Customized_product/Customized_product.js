@@ -81,8 +81,6 @@ function Customized_product() {
             setDataFromFoodArea={setDataFromFoodArea}
             productsInOrder={productsInOrder}
             setProductsInOrder={setProductsInOrder}
-            foodCount={foodCount}
-            setFoodCount={setFoodCount}
             cart={cart}
             setCart={setCart}
           />
