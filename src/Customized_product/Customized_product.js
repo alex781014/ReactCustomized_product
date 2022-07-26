@@ -70,11 +70,13 @@ function Customized_product() {
             setDataFromFoodArea={setDataFromFoodArea}
             cart={cart}
             setCart={setCart}
+            totalPrice={calcTotalPrice()}
+            foodCount={foodCount}
+            setFoodCount={setFoodCount}
           />
           <SelectedFood
             isShowedSelectFood={!isShowedSelectFood}
             setIsShowedSelectFood={setIsShowedSelectFood}
-            totalPrice={calcTotalPrice()}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
             productsInOrder={productsInOrder}

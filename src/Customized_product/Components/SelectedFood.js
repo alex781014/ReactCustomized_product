@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 function SelectedFood(props) {
   const [textArea, setTextArea] = useState('')
   const {
@@ -9,22 +9,9 @@ function SelectedFood(props) {
     setIsShowedSelectFood,
     dataFromFoodArea,
     setDataFromFoodArea,
-    foodCount,
-    setFoodCount,
-    totalPrice,
     cart,
     setCart,
-    cRef,
   } = props
-
-  const saveCanvas = () => {
-    const imgTxt = cRef.current
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream')
-    let key = 'draw-food;;' + new Date().getTime()
-    sessionStorage.setItem(key, imgTxt)
-    console.log(key, imgTxt)
-  }
 
   const removeItem = (index) => {
     const newCart = [...cart]
@@ -32,35 +19,20 @@ function SelectedFood(props) {
     setCart(newCart)
   }
 
-  const lunchCount = () => {
-    return Array(5)
-      .fill(1)
-      .map((v, i) => (
-        <option key={i} value={i + 1}>
-          {i + 1}
-        </option>
-      ))
-  }
-
-  // const SendOreder = React.forwardRef((props, cRef) => {
-  //   return (
-  //     <button ref={cRef} {...props} className="btn btn-primary w-100">
-  //       {props.children}
-  //     </button>
-  //   )
-  // })
   return (
     <>
       <div
         className={
           isShowedSelectFood
-            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar'
-            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar'
+            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column justify-content-evenly'
+            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column justify-content-evenly'
         }
       >
         <h3
           className={
-            isShowedSelectFood ? 'text-center ' : 'text-center hidden '
+            isShowedSelectFood
+              ? 'text-center xin-font-primary-color mt-5 '
+              : 'text-center hidden xin-font-primary-color'
           }
         >
           已選食材
@@ -133,9 +105,13 @@ function SelectedFood(props) {
           </div>
         </div>
         <div
-          className={isShowedSelectFood ? 'form-group' : 'form-group hidden'}
+          className={
+            isShowedSelectFood
+              ? 'form-group d-flex flex-column '
+              : 'form-group hidden'
+          }
         >
-          <label htmlFor="exampleFormControlSelect1">選擇便當數量</label>
+          {/* <label htmlFor="exampleFormControlSelect1">選擇便當數量</label>
           <select
             value={foodCount}
             onChange={(e) => {
@@ -147,19 +123,19 @@ function SelectedFood(props) {
             required
           >
             {lunchCount()}
-          </select>
+          </select> */}
           <label htmlFor="exampleFormControlTextarea1">備註欄</label>
           <textarea
             value={textArea}
             onChange={(e) => {
               setTextArea(e.target.value)
             }}
-            className="form-control"
+            className="form-control "
             id="exampleFormControlTextarea1"
             rows="3"
             name="custom_remark"
           ></textarea>
-          <div className="priceArea xin-btn btn btn-success my-3 w-100">
+          {/* <div className="priceArea xin-btn btn btn-success my-3 w-100">
             <p className="mb-0">總價:{totalPrice}</p>
           </div>
           <button
@@ -169,7 +145,7 @@ function SelectedFood(props) {
             onSubmit={saveCanvas} //點擊送出按鈕沒有動
           >
             送出
-          </button>
+          </button> */}
         </div>
         <button
           className={

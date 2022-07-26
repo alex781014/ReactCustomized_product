@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 function Canvas(props) {
-  const { cart, setCart } = props
+  const { cart, setCart, totalPrice, foodCount, setFoodCount } = props
   const [cache, setCache] = useState({})
   const cRef = useRef()
   const shadowRef = useRef()
@@ -20,6 +20,15 @@ function Canvas(props) {
     [100, 150],
     [130, 100],
   ]
+  const lunchCount = () => {
+    return Array(5)
+      .fill(1)
+      .map((v, i) => (
+        <option key={i} value={i + 1}>
+          {i + 1}
+        </option>
+      ))
+  }
 
   const getImageFromPath = async (path) => {
     return new Promise((resolve, reject) => {
@@ -83,12 +92,14 @@ function Canvas(props) {
                 首頁
               </a>
             </li>
-            <li className="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active " aria-current="page">
               客製化餐點
             </li>
           </ol>
         </nav>
-        <h2 className="xinCanvasTitle">客製化餐點</h2>
+        <h2 className="xinCanvasTitle m-0 xin-font-primary-color">
+          客製化餐點
+        </h2>
         <canvas ref={shadowRef} width="600" height="600" hidden></canvas>
         <canvas
           className="canvasFood"
@@ -97,9 +108,36 @@ function Canvas(props) {
           width="600"
           height="600"
         ></canvas>
-        <button className="btn btn-primary" onClick={saveCanvas}>
-          送出
-        </button>
+        <div className="d-flex justify-content-center flex-wrap">
+          <div className="form-group d-flex align-items-center justify-content-md-end justify-content-center col-md-6 col-12 mb-3 mb-md-0">
+            <label
+              htmlFor="exampleFormControlSelect1 "
+              className="xin-font-primary-color h4 m-0 pe-1"
+            >
+              請選擇便當數量:
+            </label>
+            <select
+              value={foodCount}
+              onChange={(e) => {
+                setFoodCount(e.target.value)
+              }}
+              className="custom-select lunchbox_stock  me-3 "
+              id="exampleFormControlSelect1"
+              name="lunchbox_stock"
+              required
+            >
+              {lunchCount()}
+            </select>
+          </div>
+          <div className="canvasBtns col-md-6 col-12 d-flex justify-content-center justify-content-md-start">
+            <button className="priceArea xin-btn btn btn-success me-3 xin-font-primary-color">
+              總價:{totalPrice}
+            </button>
+            <button className="btn btn-primary" onClick={saveCanvas}>
+              送出訂單
+            </button>
+          </div>
+        </div>
       </div>
     </>
   )
