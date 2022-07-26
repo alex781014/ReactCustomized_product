@@ -111,19 +111,6 @@ function SelectedFood(props) {
               : 'form-group hidden'
           }
         >
-          {/* <label htmlFor="exampleFormControlSelect1">選擇便當數量</label>
-          <select
-            value={foodCount}
-            onChange={(e) => {
-              setFoodCount(e.target.value)
-            }}
-            className="form-control lunchbox_stock"
-            id="exampleFormControlSelect1"
-            name="lunchbox_stock"
-            required
-          >
-            {lunchCount()}
-          </select> */}
           <label htmlFor="exampleFormControlTextarea1">備註欄</label>
           <textarea
             value={textArea}
@@ -135,17 +122,6 @@ function SelectedFood(props) {
             rows="3"
             name="custom_remark"
           ></textarea>
-          {/* <div className="priceArea xin-btn btn btn-success my-3 w-100">
-            <p className="mb-0">總價:{totalPrice}</p>
-          </div>
-          <button
-            type="submit"
-            className="btn btn-primary w-100"
-            style={{ display: 'block' }}
-            onSubmit={saveCanvas} //點擊送出按鈕沒有動
-          >
-            送出
-          </button> */}
         </div>
         <button
           className={
