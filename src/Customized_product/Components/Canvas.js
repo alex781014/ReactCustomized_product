@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 function Canvas(props) {
-  const { cart, setCart, totalPrice, foodCount, setFoodCount } = props
+  const { cart, totalPrice, foodCount, setFoodCount } = props
   const [cache, setCache] = useState({})
   const cRef = useRef()
   const shadowRef = useRef()
