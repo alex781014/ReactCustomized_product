@@ -164,14 +164,15 @@
 }
 
 .selectedFoodArea {
+  height: 100vh;
   background-color: #fff;
   border-left: 1px solid#EFF0EA;
   border-bottom: 1px solid#EFF0EA;
 }
 
-.chooseArea {
+/* .chooseArea {
   height: 40vh;
-}
+} */
 .selectedDetil {
   width: 65px;
   height: 65px;
@@ -179,22 +180,30 @@
 .fa-trash {
   cursor: pointer;
 }
+.fa-trash:hover {
+  color: red;
+}
 
 .foodCard {
   cursor: pointer;
 }
 .canvasFood {
-  position: relative;
+  margin-top: -50px;
+  pointer-events: none;
 }
 .myCanvas {
   position: absolute;
 }
-.xin-btn {
+.canvasBtns .price-btn {
   background-color: #82ca35;
   border: 1px solid #82ca35;
   cursor: default;
+  padding: 0 30px;
 }
-.xin-btn:hover {
+.pay-btn {
+  padding: 10px 30px;
+}
+.price-btn:hover {
   background-color: #82ca35;
   border: 1px solid #82ca35;
 }
@@ -204,6 +213,25 @@
 }
 .lunchbox_stock {
   padding: 0;
+  padding-left: 10px;
+}
+.canvasTextArea {
+  width: 250px;
+  padding-top: 15px;
+}
+.canvaslabelTitle {
+  position: relative;
+}
+.canvaslabel {
+  position: absolute;
+  background-color: #fff;
+  top: -10px;
+  left: 10px;
+}
+
+.xin-canvas-topay {
+  margin-top: -50px;
+  z-index: 999;
 }
 
 @media screen and (max-width: 992px) {
@@ -266,7 +294,7 @@
     height: 50px;
   }
   .canvasFood {
-    margin-top: 40px;
+    margin-top: 0px;
     width: 70%;
   }
 
@@ -275,5 +303,12 @@
   }
   .selectedFoodArea {
     border: none;
+  }
+  .canvasTextArea {
+    width: 250px;
+  }
+  .xin-canvas-topay {
+    margin-top: 10px;
+    z-index: 999;
   }
 }

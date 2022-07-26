@@ -1,9 +1,7 @@
 /* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
 import React from 'react'
-import { useState } from 'react'
 function SelectedFood(props) {
-  const [textArea, setTextArea] = useState('')
   const {
     isShowedSelectFood,
     setIsShowedSelectFood,
@@ -24,8 +22,8 @@ function SelectedFood(props) {
       <div
         className={
           isShowedSelectFood
-            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column justify-content-between'
-            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column justify-content-between'
+            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column '
+            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column '
         }
       >
         <h3
@@ -52,7 +50,7 @@ function SelectedFood(props) {
                 <div
                   {...v2}
                   key={'foods' + v2.tid}
-                  className="d-flex justify-content-between w-100 xin-font-primary-color mb-2"
+                  className="d-flex justify-content-between w-100 xin-font-primary-color mb-2 border-bottom py-2"
                 >
                   <div
                     className={
@@ -65,7 +63,6 @@ function SelectedFood(props) {
                   </div>
 
                   <p
-                    key={i}
                     className={
                       isShowedSelectFood
                         ? 'm-0 align-self-center col-3 text-center'
@@ -103,25 +100,6 @@ function SelectedFood(props) {
               )
             })}
           </div>
-        </div>
-        <div
-          className={
-            isShowedSelectFood
-              ? 'form-group d-flex flex-column '
-              : 'form-group hidden'
-          }
-        >
-          <label htmlFor="exampleFormControlTextarea1">備註欄</label>
-          <textarea
-            value={textArea}
-            onChange={(e) => {
-              setTextArea(e.target.value)
-            }}
-            className="form-control "
-            id="exampleFormControlTextarea1"
-            rows="3"
-            name="custom_remark"
-          ></textarea>
         </div>
         <button
           className={

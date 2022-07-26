@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 function Canvas(props) {
   const { cart, totalPrice, foodCount, setFoodCount } = props
   const [cache, setCache] = useState({})
+  const [textArea, setTextArea] = useState('')
   const cRef = useRef()
   const shadowRef = useRef()
   const drawLocations = [
@@ -84,7 +85,7 @@ function Canvas(props) {
 
   return (
     <>
-      <div className="col-12 col-md-6 canvas text-center">
+      <div className="col-12 col-md-6 xin-canvas text-center">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb m-3">
             <li className="breadcrumb-item ">
@@ -108,8 +109,8 @@ function Canvas(props) {
           width="600"
           height="600"
         ></canvas>
-        <div className="d-flex justify-content-center flex-wrap">
-          <div className="form-group d-flex align-items-center justify-content-md-end justify-content-center col-md-6 col-12 mb-3 mb-md-0">
+        <div className="xin-canvas-topay d-flex flex-column align-items-center flex-wrap">
+          <div className="form-group d-flex align-items-center  justify-content-center col-md-6 col-12 mb-3">
             <label
               htmlFor="exampleFormControlSelect1 "
               className="xin-font-primary-color h4 m-0 pe-1"
@@ -121,7 +122,7 @@ function Canvas(props) {
               onChange={(e) => {
                 setFoodCount(e.target.value)
               }}
-              className="custom-select lunchbox_stock  me-3 "
+              className="form-select lunchbox_stock  me-3 "
               id="exampleFormControlSelect1"
               name="lunchbox_stock"
               required
@@ -129,11 +130,33 @@ function Canvas(props) {
               {lunchCount()}
             </select>
           </div>
-          <div className="canvasBtns col-md-6 col-12 d-flex justify-content-center justify-content-md-start">
-            <button className="priceArea xin-btn btn btn-success me-3 xin-font-primary-color">
+          <div className="canvaslabelTitle form-group d-flex flex-column  mb-3">
+            <label
+              htmlFor="exampleFormControlTextarea1"
+              className="canvaslabel"
+            >
+              備註欄:
+            </label>
+            <textarea
+              value={textArea}
+              onChange={(e) => {
+                setTextArea(e.target.value)
+              }}
+              className="form-control canvasTextArea "
+              id="exampleFormControlTextarea1"
+              rows="3"
+              name="custom_remark"
+            ></textarea>
+          </div>
+          <div className="canvasBtns  d-flex justify-content-center  mb-md-3">
+            <button className="priceArea price-btn btn btn-success me-3 xin-font-primary-color">
               總價:{totalPrice}
             </button>
-            <button className="btn btn-primary" onClick={saveCanvas}>
+            <button
+              type="submit"
+              className="btn btn-primary pay-btn"
+              onClick={saveCanvas}
+            >
               送出訂單
             </button>
           </div>
