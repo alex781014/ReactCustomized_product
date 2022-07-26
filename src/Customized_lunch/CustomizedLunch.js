@@ -63,8 +63,6 @@ function Customized_product() {
             setDataFromFoodArea={setDataFromFoodArea}
             cart={cart}
             setCart={setCart}
-            limitFood={limitFood}
-            setLimitFood={setLimitFood}
           />
           <Canvas
             productsInOrder={productsInOrder}
