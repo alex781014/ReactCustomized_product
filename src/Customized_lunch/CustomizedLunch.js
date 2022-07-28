@@ -43,6 +43,7 @@ function Customized_product() {
 
   return (
     <>
+      {console.log('render')}
       <div className="container-fluid">
         <div className="pho-bg row">
           <Foods

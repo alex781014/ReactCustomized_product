@@ -9,18 +9,18 @@ function Canvas(props) {
   const cRef = useRef()
   const shadowRef = useRef()
   const drawLocations = [
-    [110, 290],
-    [110, 150],
-    [300, 155],
-    [420, 155],
-    [400, 350],
+    [125, 290],
+    [130, 160],
+    [270, 155],
+    [390, 155],
+    [380, 350],
   ]
   const drawSize = [
-    [250, 160],
-    [150, 110],
-    [100, 125],
-    [100, 150],
-    [130, 100],
+    [230, 175],
+    [130, 110],
+    [100, 115],
+    [80, 165],
+    [100, 110],
   ]
   const lunchCount = () => {
     return Array(5)
@@ -55,8 +55,8 @@ function Canvas(props) {
 
     let i = 0
     shadowCtx.clearRect(0, 0, shadowRef.current.width, shadowRef.current.height) // 清除畫面
-    let img = await getImageFromPath(`/images/lunchBox.png`) // 背景圖
-    shadowCtx.drawImage(img, 0, 0, 600, 600)
+    let img = await getImageFromPath(`/images/box.png`) // 背景圖
+    shadowCtx.drawImage(img, 0, 0, 700, 600)
     for (let item of tmpCart) {
       img = await getImageFromPath(`${item.image}`)
       shadowCtx.drawImage(
@@ -85,8 +85,8 @@ function Canvas(props) {
   }, [dataFromFoodArea])
   //送資料
   async function sendData(event) {
-    event.preventDefault()
-    alert("訂單即將送出，請確認訂單食材，如確認無誤請按'確定'送出訂單")
+    // event.preventDefault()
+    confirm("訂單即將送出，請確認訂單食材，如確認無誤請按'確定'送出訂單")
     const fd = new FormData(document.form1)
     fd.append('lunch_1', dataFromFoodArea[0].name)
     fd.append('lunch_2', dataFromFoodArea[1].name)

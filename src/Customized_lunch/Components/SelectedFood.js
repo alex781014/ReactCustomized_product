@@ -55,8 +55,8 @@ function SelectedFood(props) {
                   <div
                     className={
                       isShowedSelectFood
-                        ? 'selectedFoodImg col-3'
-                        : 'selectedFoodImg col-3 hidden'
+                        ? 'selectedFoodImg text-center col-3'
+                        : 'selectedFoodImg text-center col-3 hidden'
                     }
                   >
                     <img src={v.image} className=" selectedDetil" alt="" />
