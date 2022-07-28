@@ -1,12 +1,14 @@
 /* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
 import React from 'react'
+import { useEffect } from 'react'
 function SelectedFood(props) {
   const {
     isShowedSelectFood,
     setIsShowedSelectFood,
     dataFromFoodArea,
     setDataFromFoodArea,
+    calcCount,
   } = props
 
   const removeItem = (index) => {
@@ -31,8 +33,9 @@ function SelectedFood(props) {
               : 'text-center hidden xin-font-primary-color mt-5 '
           }
         >
-          已選食材
+          目前已選{calcCount ? calcCount : 0}樣食材
         </h3>
+
         <div
           className={
             isShowedSelectFood

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function Foods(props) {
-  const [limit, setLimit] = useState([Array(5).fill({ id: 0, name: '' })])
   const {
     dataFromFoodArea,
     setDataFromFoodArea,
@@ -13,8 +12,13 @@ function Foods(props) {
     setFoodList,
   } = props
   const addItem = (item) => {
-    const newItem = { ...item, tid: Date.now() }
-    setDataFromFoodArea([...dataFromFoodArea, newItem])
+    if (dataFromFoodArea.length < 5) {
+      const newItem = { ...item, tid: Date.now() }
+      setDataFromFoodArea([...dataFromFoodArea, newItem])
+    } else {
+      alert('食材只能選五樣唷:)')
+      return
+    }
   }
 
   const getUserData = async () => {
@@ -28,19 +32,6 @@ function Foods(props) {
   useEffect(() => {
     getUserData()
   }, [])
-
-  const limita = () => {
-    //有跳alert了 但是 沒辦法像JS return alert跳完還是會叫 要問
-    const arrayq = []
-    const newdataFromFoodArea = [...dataFromFoodArea].map((v, i) => {
-      arrayq.push(v)
-      if (arrayq.length >= 5) {
-        alert('滿了')
-      }
-      return arrayq
-    })
-    setLimit(newdataFromFoodArea)
-  }
 
   //  每個商品物件
   // {
@@ -147,10 +138,7 @@ function Foods(props) {
                       key={v.id}
                       className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center"
                       onClick={() => {
-                        setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
-                        console.log(dataFromFoodArea)
-                        // limita()
                       }}
                     >
                       <img
@@ -186,9 +174,7 @@ function Foods(props) {
                       key={v.id}
                       className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
-                        setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
-                        limita()
                       }}
                     >
                       <img
@@ -225,9 +211,7 @@ function Foods(props) {
                       key={v.id}
                       className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
-                        setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
-                        limita()
                       }}
                     >
                       <img
@@ -264,9 +248,7 @@ function Foods(props) {
                       key={v.id}
                       className="foodCard col-md-4 col-4 mb-3 card xin-card border-0 align-items-center "
                       onClick={() => {
-                        setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
-                        limita()
                       }}
                     >
                       <img

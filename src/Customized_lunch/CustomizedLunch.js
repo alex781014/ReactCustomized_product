@@ -24,28 +24,19 @@ function Customized_product() {
   const [foodCount, setFoodCount] = useState(1)
   const [foodList, setFoodList] = useState([]) //撈資料庫
 
-  // const [usersData, setUserData] = useState([]) //撈資料庫
-
-  // const getUserData = async () => {
-  //   const response = await axios.get(
-  //     'http://localhost:3600/customized_lunch/api'
-  //   )
-  //   console.log(response.data.rows)
-
-  //   setUserData(response.data.rows)
-  // }
-
-  // useEffect(() => {
-  //   getUserData()
-  // }, [])
+  const caclTotalCount = () => {
+    let count = 0
+    for (let i = 0; i < dataFromFoodArea.length; i++) {
+      count = dataFromFoodArea.length
+    }
+    return count
+  }
 
   const calcTotalPrice = () => {
     let total = 0
 
     for (let i = 0; i < dataFromFoodArea.length; i++) {
-      // if (dataFromFoodArea.length < 6) {  //計算金額還是怪怪的 會跳回去0
       total += dataFromFoodArea[i].price * foodCount
-      // }
     }
     return total
   }
@@ -70,6 +61,8 @@ function Customized_product() {
             setFoodCount={setFoodCount}
           />
           <SelectedFood
+            calcCount={caclTotalCount()}
+            foodList={foodList}
             isShowedSelectFood={!isShowedSelectFood}
             setIsShowedSelectFood={setIsShowedSelectFood}
             dataFromFoodArea={dataFromFoodArea}
