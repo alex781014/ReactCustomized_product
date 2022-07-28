@@ -1,18 +1,45 @@
-// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import foodList from '../data/foodList.json'
+import axios from 'axios'
 
 function Foods(props) {
-  const { isShowed, setIsShowed } = props
+  const [limit, setLimit] = useState([Array(5).fill({ id: 0, name: '' })])
   const {
-    productsInOrder,
     dataFromFoodArea,
     setDataFromFoodArea,
-    cart,
-    setCart,
+    isShowed,
+    setIsShowed,
+    foodList,
+    setFoodList,
   } = props
   const addItem = (item) => {
     const newItem = { ...item, tid: Date.now() }
-    setCart([...cart, newItem])
+    setDataFromFoodArea([...dataFromFoodArea, newItem])
+  }
+
+  const getUserData = async () => {
+    const response = await axios.get(
+      'http://localhost:3600/customized_lunch/api'
+    )
+
+    setFoodList(response.data.rows)
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
+
+  const limita = () => {
+    //有跳alert了 但是 沒辦法像JS return alert跳完還是會叫 要問
+    const arrayq = []
+    const newdataFromFoodArea = [...dataFromFoodArea].map((v, i) => {
+      arrayq.push(v)
+      if (arrayq.length >= 5) {
+        alert('滿了')
+      }
+      return arrayq
+    })
+    setLimit(newdataFromFoodArea)
   }
 
   //  每個商品物件
@@ -110,9 +137,9 @@ function Foods(props) {
             aria-labelledby="pills-staple-food"
           >
             <div className="d-flex flex-wrap ">
-              {productsInOrder
+              {foodList
                 .filter((v, i) => {
-                  return v.category === '1'
+                  return v.category === 1
                 })
                 .map((v, i) => {
                   return (
@@ -122,6 +149,8 @@ function Foods(props) {
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
+                        console.log(dataFromFoodArea)
+                        // limita()
                       }}
                     >
                       <img
@@ -147,9 +176,9 @@ function Foods(props) {
             aria-labelledby="pills-meal"
           >
             <div className="d-flex flex-wrap">
-              {productsInOrder
+              {foodList
                 .filter((v, i) => {
-                  return v.category === '2'
+                  return v.category === 2
                 })
                 .map((v, i) => {
                   return (
@@ -159,6 +188,7 @@ function Foods(props) {
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
+                        limita()
                       }}
                     >
                       <img
@@ -185,9 +215,9 @@ function Foods(props) {
             aria-labelledby="pills-seafood"
           >
             <div className="d-flex flex-wrap">
-              {productsInOrder
+              {foodList
                 .filter((v, i) => {
-                  return v.category === '3'
+                  return v.category === 3
                 })
                 .map((v, i) => {
                   return (
@@ -197,6 +227,7 @@ function Foods(props) {
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
+                        limita()
                       }}
                     >
                       <img
@@ -223,9 +254,9 @@ function Foods(props) {
             aria-labelledby="pills-vegetable"
           >
             <div className="d-flex flex-wrap">
-              {productsInOrder
+              {foodList
                 .filter((v, i) => {
-                  return v.category === '4'
+                  return v.category === 4
                 })
                 .map((v, i) => {
                   return (
@@ -235,6 +266,7 @@ function Foods(props) {
                       onClick={() => {
                         setDataFromFoodArea([...dataFromFoodArea, v])
                         addItem(v)
+                        limita()
                       }}
                     >
                       <img

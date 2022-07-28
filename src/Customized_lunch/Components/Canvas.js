@@ -1,8 +1,9 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react'
 
 function Canvas(props) {
-  const { cart, totalPrice, foodCount, setFoodCount } = props
+  const { totalPrice, foodCount, setFoodCount, dataFromFoodArea } = props
   const [cache, setCache] = useState({})
   const [textArea, setTextArea] = useState('')
   const cRef = useRef()
@@ -49,7 +50,7 @@ function Canvas(props) {
     const shadowCtx = shadowRef.current.getContext('2d')
     const realCtx = cRef.current.getContext('2d')
 
-    const tmpCart = cart.slice(0, 5) // 只取前面五筆
+    const tmpCart = dataFromFoodArea.slice(0, 5) // 只取前面五筆
     // let countComplete = tmpCart.length
 
     let i = 0
@@ -81,7 +82,33 @@ function Canvas(props) {
 
   useEffect(() => {
     doDraw()
-  }, [cart])
+  }, [dataFromFoodArea])
+  //送資料
+  async function sendData(event) {
+    event.preventDefault()
+    alert("訂單即將送出，請確認訂單食材，如確認無誤請按'確定'送出訂單")
+    const fd = new FormData(document.form1)
+    fd.append('lunch_1', JSON.stringify(dataFromFoodArea[0].name))
+    fd.append('lunch_2', JSON.stringify(dataFromFoodArea[1].name))
+    fd.append('lunch_3', JSON.stringify(dataFromFoodArea[2].name))
+    fd.append('lunch_4', JSON.stringify(dataFromFoodArea[3].name))
+    fd.append('lunch_5', JSON.stringify(dataFromFoodArea[4].name))
+    fd.append('total_price', JSON.stringify(totalPrice))
+    // fd.append('lunch_pic', sessionStorage.getItem(key, imgTxt))
+
+    try {
+      const response = await fetch(
+        'http://localhost:3600/customized_lunch/add',
+        {
+          method: 'POST',
+          body: fd,
+        }
+      )
+      const result = await response.json()
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
@@ -109,58 +136,65 @@ function Canvas(props) {
           width="600"
           height="600"
         ></canvas>
-        <div className="xin-canvas-topay d-flex flex-column align-items-center flex-wrap">
-          <div className="form-group d-flex align-items-center  justify-content-center col-md-6 col-12 mb-3">
-            <label
-              htmlFor="exampleFormControlSelect1 "
-              className="xin-font-primary-color h4 m-0 pe-1"
-            >
-              請選擇便當數量:
-            </label>
-            <select
-              value={foodCount}
-              onChange={(e) => {
-                setFoodCount(e.target.value)
-              }}
-              className="form-select lunchbox_stock  me-3 "
-              id="exampleFormControlSelect1"
-              name="lunchbox_stock"
-              required
-            >
-              {lunchCount()}
-            </select>
+        <form
+          name="form1"
+          onSubmit={() => {
+            sendData(event)
+          }}
+        >
+          <div className="xin-canvas-topay d-flex flex-column align-items-center flex-wrap">
+            <div className="form-group d-flex align-items-center  justify-content-center col-md-6 col-12 mb-3">
+              <label
+                htmlFor="exampleFormControlSelect1 "
+                className="xin-font-primary-color h4 m-0 pe-1"
+              >
+                請選擇便當數量:
+              </label>
+              <select
+                value={foodCount}
+                onChange={(e) => {
+                  setFoodCount(e.target.value)
+                }}
+                className="form-select lunchbox_stock  me-3 "
+                id="exampleFormControlSelect1"
+                name="lunchbox_stock"
+                required
+              >
+                {lunchCount()}
+              </select>
+            </div>
+            <div className="canvaslabelTitle form-group d-flex flex-column  mb-3">
+              <label
+                htmlFor="exampleFormControlTextarea1"
+                className="canvaslabel"
+              >
+                備註欄:
+              </label>
+              <textarea
+                value={textArea}
+                onChange={(e) => {
+                  setTextArea(e.target.value)
+                }}
+                className="form-control canvasTextArea "
+                id="exampleFormControlTextarea1"
+                rows="3"
+                name="custom_remark"
+              ></textarea>
+            </div>
+            <div className="canvasBtns  d-flex justify-content-center  mb-md-3">
+              <button className="priceArea price-btn btn btn-success me-3 xin-font-primary-color">
+                總價:{totalPrice}
+              </button>
+              <button
+                type="submit"
+                className="btn btn-primary pay-btn"
+                onClick={saveCanvas}
+              >
+                送出訂單
+              </button>
+            </div>
           </div>
-          <div className="canvaslabelTitle form-group d-flex flex-column  mb-3">
-            <label
-              htmlFor="exampleFormControlTextarea1"
-              className="canvaslabel"
-            >
-              備註欄:
-            </label>
-            <textarea
-              value={textArea}
-              onChange={(e) => {
-                setTextArea(e.target.value)
-              }}
-              className="form-control canvasTextArea "
-              id="exampleFormControlTextarea1"
-              rows="3"
-              name="custom_remark"
-            ></textarea>
-          </div>
-          <div className="canvasBtns  d-flex justify-content-center  mb-md-3">
-            <button className="priceArea price-btn btn btn-success me-3 xin-font-primary-color">
-              總價:{totalPrice}
-            </button>
-            <button
-              type="submit"
-              className="btn btn-primary pay-btn"
-              onClick={saveCanvas}
-            >
-              送出訂單
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     </>
   )

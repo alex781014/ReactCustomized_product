@@ -7,14 +7,12 @@ function SelectedFood(props) {
     setIsShowedSelectFood,
     dataFromFoodArea,
     setDataFromFoodArea,
-    cart,
-    setCart,
   } = props
 
   const removeItem = (index) => {
-    const newCart = [...cart]
+    const newCart = [...dataFromFoodArea]
     newCart.splice(index, 1)
-    setCart(newCart)
+    setDataFromFoodArea(newCart)
   }
 
   return (

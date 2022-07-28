@@ -2,9 +2,8 @@ import Foods from './Components/Foods'
 import Canvas from './Components/Canvas'
 import SelectedFood from './Components/SelectedFood'
 import './Customized_product.css'
-import { useState, useEffect } from 'react'
-import foodList from './data/foodList.json'
-// import axios from 'axios'
+import { useState } from 'react'
+// import foodList from './data/foodList.json'
 //初始化狀態用的函式
 // const initState = (productArray) => {
 //   const state = []
@@ -21,31 +20,32 @@ import foodList from './data/foodList.json'
 function Customized_product() {
   const [isShowed, setIsShowed] = useState(true)
   const [isShowedSelectFood, setIsShowedSelectFood] = useState(true)
-  const [productsInOrder, setProductsInOrder] = useState(foodList)
   const [dataFromFoodArea, setDataFromFoodArea] = useState([])
   const [foodCount, setFoodCount] = useState(1)
-  const [cart, setCart] = useState([])
+  const [foodList, setFoodList] = useState([]) //撈資料庫
 
-  // const [userData, setUserData] = useState([]) //撈資料庫
+  // const [usersData, setUserData] = useState([]) //撈資料庫
 
   // const getUserData = async () => {
   //   const response = await axios.get(
   //     'http://localhost:3600/customized_lunch/api'
   //   )
-  //   console.log(response.data)
+  //   console.log(response.data.rows)
 
-  //   setUserData(response.data)
+  //   setUserData(response.data.rows)
   // }
 
-  useEffect(() => {
-    // getUserData()
-  }, [])
+  // useEffect(() => {
+  //   getUserData()
+  // }, [])
 
   const calcTotalPrice = () => {
     let total = 0
 
     for (let i = 0; i < dataFromFoodArea.length; i++) {
+      // if (dataFromFoodArea.length < 6) {  //計算金額還是怪怪的 會跳回去0
       total += dataFromFoodArea[i].price * foodCount
+      // }
     }
     return total
   }
@@ -57,19 +57,14 @@ function Customized_product() {
           <Foods
             isShowed={!isShowed}
             setIsShowed={setIsShowed}
-            productsInOrder={productsInOrder}
-            setProductsInOrder={setProductsInOrder}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
-            cart={cart}
-            setCart={setCart}
+            foodList={foodList}
+            setFoodList={setFoodList}
           />
           <Canvas
-            productsInOrder={productsInOrder}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
-            cart={cart}
-            setCart={setCart}
             totalPrice={calcTotalPrice()}
             foodCount={foodCount}
             setFoodCount={setFoodCount}
@@ -79,10 +74,6 @@ function Customized_product() {
             setIsShowedSelectFood={setIsShowedSelectFood}
             dataFromFoodArea={dataFromFoodArea}
             setDataFromFoodArea={setDataFromFoodArea}
-            productsInOrder={productsInOrder}
-            setProductsInOrder={setProductsInOrder}
-            cart={cart}
-            setCart={setCart}
           />
         </div>
       </div>
