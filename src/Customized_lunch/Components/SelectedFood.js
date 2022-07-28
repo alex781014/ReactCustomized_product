@@ -28,7 +28,7 @@ function SelectedFood(props) {
         <h3
           className={
             isShowedSelectFood
-              ? 'text-center xin-font-primary-color '
+              ? 'text-center xin-font-primary-color mt-5'
               : 'text-center hidden xin-font-primary-color mt-5 '
           }
         >
@@ -55,8 +55,8 @@ function SelectedFood(props) {
                   <div
                     className={
                       isShowedSelectFood
-                        ? 'selectedFoodImg text-center col-3'
-                        : 'selectedFoodImg text-center col-3 hidden'
+                        ? 'selectedFoodImg text-center col-4'
+                        : 'selectedFoodImg text-center col-4 hidden'
                     }
                   >
                     <img src={v.image} className=" selectedDetil" alt="" />
@@ -65,8 +65,8 @@ function SelectedFood(props) {
                   <p
                     className={
                       isShowedSelectFood
-                        ? 'm-0 align-self-center col-3 text-center'
-                        : 'm-0 align-self-center col-3 text-center hidden'
+                        ? 'm-0 align-self-center col-4 text-center'
+                        : 'm-0 align-self-center col-4 text-center hidden'
                     }
                   >
                     {v.name}
@@ -80,12 +80,12 @@ function SelectedFood(props) {
                   >
                     價格:{v.price}
                   </p>
-                  <div className="selectedDelete d-flex align-items-center">
+                  <div className="selectedDelete d-flex align-items-center col-1">
                     <i
                       className={
                         isShowedSelectFood
-                          ? 'fa-solid fa-trash col-3'
-                          : 'fa-solid fa-trash col-3 hidden'
+                          ? 'fa-solid fa-trash '
+                          : 'fa-solid fa-trash  hidden'
                       }
                       onClick={() => {
                         const newDelete = dataFromFoodArea.filter((v2, i2) => {

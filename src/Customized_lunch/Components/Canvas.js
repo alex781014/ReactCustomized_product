@@ -9,14 +9,14 @@ function Canvas(props) {
   const cRef = useRef()
   const shadowRef = useRef()
   const drawLocations = [
-    [125, 290],
-    [130, 160],
-    [270, 155],
-    [390, 155],
-    [380, 350],
+    [135, 330],
+    [160, 180],
+    [320, 185],
+    [460, 175],
+    [450, 390],
   ]
   const drawSize = [
-    [230, 175],
+    [280, 175],
     [130, 110],
     [100, 115],
     [80, 165],
@@ -56,7 +56,7 @@ function Canvas(props) {
     let i = 0
     shadowCtx.clearRect(0, 0, shadowRef.current.width, shadowRef.current.height) // 清除畫面
     let img = await getImageFromPath(`/images/box.png`) // 背景圖
-    shadowCtx.drawImage(img, 0, 0, 700, 600)
+    shadowCtx.drawImage(img, 0, 0, 700, 650)
     for (let item of tmpCart) {
       img = await getImageFromPath(`${item.image}`)
       shadowCtx.drawImage(
@@ -112,7 +112,7 @@ function Canvas(props) {
 
   return (
     <>
-      <div className="col-12 col-md-6 xin-canvas text-center">
+      <div className="col-12 col-md-6 xin-canvas text-center flex-grow-1">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb m-3">
             <li className="breadcrumb-item ">
@@ -125,12 +125,12 @@ function Canvas(props) {
             </li>
           </ol>
         </nav>
-        <h2 className="xinCanvasTitle m-0 xin-font-primary-color">
+        <h2 className="xinCanvasTitle m-0 xin-font-primary-color text-center">
           客製化餐點
         </h2>
         <canvas ref={shadowRef} width="600" height="600" hidden></canvas>
         <canvas
-          className="canvasFood"
+          className="canvasFood "
           id="myCanvas"
           ref={cRef}
           width="600"

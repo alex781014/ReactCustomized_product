@@ -42,6 +42,7 @@
 
 .xin-food-area {
   background-color: #fff;
+  border-right: 1px solid #000;
 }
 .xin-rightArrow {
   display: none;
@@ -163,8 +164,7 @@
 .selectedFoodArea {
   height: 100vh;
   background-color: #fff;
-  border-left: 1px solid#EFF0EA;
-  border-bottom: 1px solid#EFF0EA;
+  border-left: 1px solid#000;
   /* transition: 1s; */
 }
 
@@ -187,12 +187,12 @@
 }
 .canvasFood {
   margin-top: -50px;
-  margin-left: -50px;
+  margin-left: -100px;
   pointer-events: none;
 }
-.myCanvas {
+/* .myCanvas {
   position: absolute;
-}
+} */
 .canvasBtns .price-btn {
   background-color: #82ca35;
   border: 1px solid #82ca35;
@@ -236,6 +236,9 @@
 }
 
 @media screen and (max-width: 992px) {
+  .xin-food-area {
+    border: none;
+  }
   .xin-rightArrow {
     position: absolute;
     display: block;
