@@ -72,11 +72,11 @@ function Canvas(props) {
     realCtx.drawImage(shadowRef.current, 0, 0)
   }
   // 存canvas畫布
+  let key = 'draw-food'
   const saveCanvas = () => {
     const imgTxt = cRef.current
       .toDataURL('image/png')
       .replace('image/png', 'image/octet-stream')
-    let key = 'draw-food;;' + new Date().getTime()
     sessionStorage.setItem(key, imgTxt)
   }
 
@@ -88,13 +88,13 @@ function Canvas(props) {
     event.preventDefault()
     alert("訂單即將送出，請確認訂單食材，如確認無誤請按'確定'送出訂單")
     const fd = new FormData(document.form1)
-    fd.append('lunch_1', JSON.stringify(dataFromFoodArea[0].name))
-    fd.append('lunch_2', JSON.stringify(dataFromFoodArea[1].name))
-    fd.append('lunch_3', JSON.stringify(dataFromFoodArea[2].name))
-    fd.append('lunch_4', JSON.stringify(dataFromFoodArea[3].name))
-    fd.append('lunch_5', JSON.stringify(dataFromFoodArea[4].name))
-    fd.append('total_price', JSON.stringify(totalPrice))
-    // fd.append('lunch_pic', sessionStorage.getItem(key, imgTxt))
+    fd.append('lunch_1', dataFromFoodArea[0].name)
+    fd.append('lunch_2', dataFromFoodArea[1].name)
+    fd.append('lunch_3', dataFromFoodArea[2].name)
+    fd.append('lunch_4', dataFromFoodArea[3].name)
+    fd.append('lunch_5', dataFromFoodArea[4].name)
+    fd.append('total_price', totalPrice)
+    fd.append('lunch_pic', sessionStorage.getItem(key))
 
     try {
       const response = await fetch(
