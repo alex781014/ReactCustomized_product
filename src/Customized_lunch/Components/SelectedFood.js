@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-globals */
 // import ProductItem from './ProductItem'
 import React from 'react'
-import { useEffect } from 'react'
 function SelectedFood(props) {
   const {
     isShowedSelectFood,
