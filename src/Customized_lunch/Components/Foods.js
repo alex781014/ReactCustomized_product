@@ -13,7 +13,7 @@ function Foods(props) {
   } = props
   const addItem = (item) => {
     if (dataFromFoodArea.length < 5) {
-      const newItem = { ...item, tid: Date.now() }
+      const newItem = { ...item, tid: +Date.now() }
       setDataFromFoodArea([...dataFromFoodArea, newItem])
     } else {
       alert('食材只能選五樣唷:)')
@@ -46,8 +46,8 @@ function Foods(props) {
       <div
         className={
           isShowed
-            ? 'col-md-3 xin-sideMenu showSideBar xin-food-area '
-            : 'col-md-3 sideMenuNX hiddenSideBar xin-food-area '
+            ? 'col-md-3 g-0 xin-sideMenu showSideBar xin-food-area '
+            : 'col-md-3 g-0 sideMenuNX hiddenSideBar xin-food-area '
         }
       >
         <ul

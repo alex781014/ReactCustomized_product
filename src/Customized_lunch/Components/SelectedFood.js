@@ -21,8 +21,8 @@ function SelectedFood(props) {
       <div
         className={
           isShowedSelectFood
-            ? 'col-md-3 selectedFoodArea showSelectedFoodSideBar d-flex flex-column '
-            : 'col-md-3  selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column '
+            ? 'col-md-3 g-0 selectedFoodArea showSelectedFoodSideBar d-flex flex-column '
+            : 'col-md-3  g-0 selectedFoodArea selectedFoodSideMenuNX hiddenSelectedFoodSideBar d-flex flex-column '
         }
       >
         <h3
@@ -43,20 +43,44 @@ function SelectedFood(props) {
           }
         >
           <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
+            <div
+              className={
+                isShowedSelectFood
+                  ? 'd-flex w-100 text-center border-bottom border-dark border-3'
+                  : 'd-flex w-100 text-center '
+              }
+            >
+              <div className={isShowedSelectFood ? 'col-3' : 'col-3 hidden'}>
+                食材
+              </div>
+              <div className={isShowedSelectFood ? 'col-4' : 'col-4 hidden'}>
+                食材名稱
+              </div>
+              <div className={isShowedSelectFood ? 'col-3' : 'col-3 hidden'}>
+                價格
+              </div>
+              <div className={isShowedSelectFood ? 'col-2' : 'col-2 hidden'}>
+                刪除
+              </div>
+            </div>
             {/* 限制五次 */}
             {dataFromFoodArea.slice(0, 5).map((v, i) => {
-              const v2 = { ...v, tid: Math.round(Math.random() * 10_000_000) }
+              const v2 = { ...v, tid: Math.round(Math.random() * 10_000) }
               return (
                 <div
                   {...v2}
                   key={'foods' + v2.tid}
-                  className="d-flex justify-content-between w-100 xin-font-primary-color mb-2 border-bottom py-2"
+                  className={
+                    isShowedSelectFood
+                      ? 'd-flex justify-content-between w-100 xin-font-primary-color mb-2 border-bottom py-2'
+                      : 'd-flex justify-content-between w-100 xin-font-primary-color mb-2 '
+                  }
                 >
                   <div
                     className={
                       isShowedSelectFood
-                        ? 'selectedFoodImg text-center col-4'
-                        : 'selectedFoodImg text-center col-4 hidden'
+                        ? 'selectedFoodImg text-center col-3'
+                        : 'selectedFoodImg text-center col-3 hidden'
                     }
                   >
                     <img src={v.image} className=" selectedDetil" alt="" />
@@ -74,8 +98,8 @@ function SelectedFood(props) {
                   <p
                     className={
                       isShowedSelectFood
-                        ? 'm-0 align-self-center col-3'
-                        : 'm-0 align-self-center col-3 hidden'
+                        ? 'm-0 align-self-center col-4 text-center'
+                        : 'm-0 align-self-center col-4 text-center hidden'
                     }
                   >
                     價格:{v.price}

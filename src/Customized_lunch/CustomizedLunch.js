@@ -44,7 +44,7 @@ function Customized_product() {
   return (
     <>
       {console.log('render')}
-      <div className="container-fluid">
+      <div className="container-fluid g-0">
         <div className="pho-bg row w-100 m-0">
           <Foods
             isShowed={!isShowed}
