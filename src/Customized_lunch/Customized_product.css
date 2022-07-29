@@ -242,10 +242,9 @@
   margin-top: -50px;
   z-index: 999;
 }
-.hidden-sub-title {
-  border: none;
+.xin-border {
+  border-bottom: 2px solid #000;
 }
-
 @media screen and (max-width: 992px) {
   .xin-food-area {
     border: none;
@@ -330,5 +329,8 @@
   .xin-canvas-topay {
     margin-top: 10px;
     z-index: 999;
+  }
+  .xin-border {
+    border-bottom: none;
   }
 }

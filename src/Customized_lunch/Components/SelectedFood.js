@@ -42,7 +42,7 @@ function SelectedFood(props) {
               : 'chooseArea d-flex align-items-center hidden '
           }
         >
-          <div className="d-flex align-items-center justify-content-between flex-wrap w-100">
+          <div className="d-flex align-items-center justify-content-between flex-wrap w-100 xin-border">
             <div
               className={
                 isShowedSelectFood
