@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from 'react'
 // import foodList from '../data/foodList.json'
 import axios from 'axios'
 
@@ -25,7 +26,6 @@ function Foods(props) {
     const response = await axios.get(
       'http://localhost:3600/customized_lunch/api'
     )
-
     setFoodList(response.data.rows)
   }
 
